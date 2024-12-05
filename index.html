@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body>
+    <!-- Main Color: Vibrant Blue (#007BFF) or Electric Purple (#8A2BE2).
+Accent Color: Bright Teal (#00D4A9).
+Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css"
+        integrity="sha256-x8PYmLKD83R9T/sYmJn1j3is/chhJdySyhet/JuHnfY=" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        html,
+        body {
+            font-family: "Raleway", sans-serif;
+        }
+
+        @media (min-width: 1024px) {
+            .top-navbar {
+                display: inline-flex !important;
+            }
+        }
+
+        @media (max-width: 408px) {
+            #search {
+                width: 100%;
+            }
+        }
+        @media (max-width: 1110px) {
+            .reg {
+                flex-direction: column;
+                width: 100%;
+            }
+        }
+    </style>
+    <nav
+        class="sticky top-0 z-50 bg-white/50 flex items-center backdrop-blur-md p-3 shadow-md flex-wrap transition-all duration-300">
+
+        <a href="#" class="p-2 mr-4 inline-flex items-center">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                class="fill-current text-purple-800 h-8 w-8 mr-2">
+                <path
+                    d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z" />
+            </svg>
+            <span class="text-xl text-purple-700 font-bold uppercase tracking-wide">EVENTFLOW</span>
+        </a>
+        <button
+            class="text-purple-700 inline-flex p-3 hover:bg-purple-700 rounded lg:hidden ml-auto hover:text-white outline-none nav-toggler"
+            data-target="#navigation">
+            <i class="material-icons">menu</i>
+        </button>
+        <div class="flex rounded-md border border-purple overflow-hidden max-w-md mx-auto w-80 " id="search">
+            <input type="email" placeholder="Search Events and Location..."
+                class="w-full outline-none bg-white text-gray-600 text-sm px-4 py-3" />
+            <button type='button' class="flex items-center justify-center bg-[#8A2BE2] px-5">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192.904 192.904" width="16px" class="fill-white">
+                    <path
+                        d="m190.707 180.101-47.078-47.077c11.702-14.072 18.752-32.142 18.752-51.831C162.381 36.423 125.959 0 81.191 0 36.422 0 0 36.423 0 81.193c0 44.767 36.422 81.187 81.191 81.187 19.688 0 37.759-7.049 51.831-18.751l47.079 47.078a7.474 7.474 0 0 0 5.303 2.197 7.498 7.498 0 0 0 5.303-12.803zM15 81.193C15 44.694 44.693 15 81.191 15c36.497 0 66.189 29.694 66.189 66.193 0 36.496-29.692 66.187-66.189 66.187C44.693 147.38 15 117.689 15 81.193z">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <div class="hidden top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto" id="navigation">
+            <div
+                class="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto">
+                <a href="#"
+                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center hover:bg-purple-600 hover:text-white">
+                    <span>Discover events</span>
+                </a>
+                <a href="#"
+                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center hover:bg-purple-600 hover:text-white">
+                    <span>Start an event</span>
+                </a>
+                <a href="#"
+                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center hover:bg-purple-600 hover:text-white">
+                    <span>My Tickets</span>
+                </a>
+                <div style="display: flex; gap: 0.5rem;" class="reg">
+                    <a href="#"
+                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 bg-purple-600 text-white rounded text-purple-900 items-center justify-center hover:bg-purple-500 hover:text-white"
+                    id="login">
+                    <span>Login</span>
+                </a>
+                <a href="#"
+                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 bg-purple-600 text-white rounded text-purple-900 items-center justify-center hover:bg-purple-500 hover:text-white"
+                    id="Signup">
+                    <span>Signup</span>
+                </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <hr style=" border: 1px solid purple;">
+
+
+    <!-- events in a state -->
+    <div class=" min-h-screen py-32 px-10 ">
+        <h1 class="md:text-1xl text-xl hover:text-purple-600 transition duration-200  font-bold text-black-900 ">
+            EVENTS IN <span>IBADAN</span> </h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-10 xl-grid-cols-4 gap-y-10 gap-x-6 ">
+
+            <div class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
+                <img src="https://images.unsplash.com/photo-1627751476653-e954179b174a" alt=""
+                    class="rounded-t-lg w-full">
+                <div class="p-6">
+                    <h1
+                        class="md:text-1xl text-xl hover:text-indigo-600 transition duration-200  font-bold text-black-900 ">
+                        Ibadan Palm Wine Hangout</h1>
+                    <p class="text-gray-900 my-2 hover-text-900 ">Sat, Dec 21 • 9:00 AM.</p>
+                    <b class="text-gray-700 my-2 hover-text-900 "><span>Venue: </span>Work and Play Race Arena (xKarting
+                        race), Bodija Ibadan.</b> <br><br>
+                    <b class="text-gray-700 my-2 hover-text-900 ">From: $5.00</b>
+                </div>
+            </div>
+            <div class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
+                <img src="https://images.unsplash.com/photo-1572431447238-425af66a273b" alt=""
+                    class="rounded-t-lg w-full">
+                <div class="p-6">
+                    <h1
+                        class="md:text-1xl text-xl hover:text-indigo-600 transition duration-200  font-bold text-black-900 ">
+                        Ibadan Palm Wine Hangout</h1>
+                    <p class="text-gray-900 my-2 hover-text-900 ">Sat, Dec 21 • 9:00 AM.</p>
+                    <b class="text-gray-700 my-2 hover-text-900 "><span>Venue: </span>Work and Play Race Arena (xKarting
+                        race), Bodija Ibadan.</b> <br><br>
+                    <b class="text-gray-700 my-2 hover-text-900 ">From: $5.00</b>
+                </div>
+            </div>
+            <div class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
+                <img src="https://images.unsplash.com/photo-1540202404-1b927e27fa8b" alt="" class="rounded-t-lg w-full">
+                <div class="p-6">
+                    <h1
+                        class="md:text-1xl text-xl hover:text-indigo-600 transition duration-200  font-bold text-black-900 ">
+                        Ibadan Palm Wine Hangout</h1>
+                    <p class="text-gray-900 my-2 hover-text-900 ">Sat, Dec 21 • 9:00 AM.</p>
+                    <b class="text-gray-700 my-2 hover-text-900 "><span>Venue: </span>Work and Play Race Arena (xKarting
+                        race), Bodija Ibadan.</b> <br><br>
+                    <b class="text-gray-700 my-2 hover-text-900 ">From: $5.00</b>
+                </div>
+            </div>
+            <div class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
+                <img src="https://images.unsplash.com/photo-1506790409786-287062b21cfe" alt=""
+                    class="rounded-t-lg w-full">
+                <div class="p-6">
+                    <h1
+                        class="md:text-1xl text-xl hover:text-indigo-600 transition duration-200  font-bold text-black-900 ">
+                        Ibadan Palm Wine Hangout</h1>
+                    <p class="text-gray-900 my-2 hover-text-900 ">Sat, Dec 21 • 9:00 AM.</p>
+                    <b class="text-gray-700 my-2 hover-text-900 "><span>Venue: </span>Work and Play Race Arena (xKarting
+                        race), Bodija Ibadan.</b> <br><br>
+                    <b class="text-gray-700 my-2 hover-text-900 ">From: $5.00</b>
+                </div>
+            </div>
+            <div class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
+                <img src="https://images.unsplash.com/photo-1505881502353-a1986add3762" alt=""
+                    class="rounded-t-lg w-full">
+                <div class="p-6">
+                    <h1
+                        class="md:text-1xl text-xl hover:text-indigo-600 transition duration-200  font-bold text-black-900 ">
+                        Ibadan Palm Wine Hangout</h1>
+                    <p class="text-gray-900 my-2 hover-text-900 ">Sat, Dec 21 • 9:00 AM.</p>
+                    <b class="text-gray-700 my-2 hover-text-900 "><span>Venue: </span>Work and Play Race Arena (xKarting
+                        race), Bodija Ibadan.</b> <br><br>
+                    <b class="text-gray-700 my-2 hover-text-900 ">From: $5.00</b>
+                </div>
+            </div>
+            <div class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
+                <img src="https://images.unsplash.com/photo-1544473244-f6895e69ad8b" alt="" class="rounded-t-lg w-full">
+                <div class="p-6">
+                    <h1
+                        class="md:text-1xl text-xl hover:text-indigo-600 transition duration-200  font-bold text-black-900 ">
+                        Ibadan Palm Wine Hangout</h1>
+                    <p class="text-gray-900 my-2 hover-text-900 ">Sat, Dec 21 • 9:00 AM.</p>
+                    <b class="text-gray-700 my-2 hover-text-900 "><span>Venue: </span>Work and Play Race Arena (xKarting
+                        race), Bodija Ibadan.</b> <br><br>
+                    <b class="text-gray-700 my-2 hover-text-900 ">From: $5.00</b>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- More events -->
+
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-purple-100 via-purple-200 to-purple-300 text-black-800">
+        <div class="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+                <div>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                        class="fill-current text-purple-800 h-8 w-8 mr-2">
+                        <path
+                            d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z" />
+                    </svg><br>
+                    <b class="max-w-xs mt-4 text-x1 text-gray-600">
+                        Connect with the Developer here
+                    </b>
+
+                    <div class="flex mt-4 space-x-6 text-gray-600">
+                        <a class="hover:opacity-75" href="#" target="_blank" rel="noreferrer">
+                            <span class="sr-only">GitHub</span>
+                            <svg class="w-6 h-6 text-purple-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.867 8.166 6.839 9.489.5.092.683-.217.683-.483 0-.237-.008-.868-.013-1.703-2.782.603-3.369-1.342-3.369-1.342-.454-1.157-1.11-1.465-1.11-1.465-.908-.62.069-.607.069-.607 1.004.07 1.532 1.033 1.532 1.033.892 1.528 2.341 1.087 2.91.832.092-.646.35-1.087.635-1.338-2.22-.253-4.555-1.11-4.555-4.934 0-1.09.39-1.981 1.03-2.679-.103-.253-.447-1.27.098-2.645 0 0 .84-.27 2.75 1.026A9.56 9.56 0 0112 6.8c.85.004 1.706.115 2.507.338 1.91-1.296 2.75-1.026 2.75-1.026.546 1.375.202 2.392.1 2.645.64.698 1.03 1.589 1.03 2.679 0 3.833-2.337 4.677-4.565 4.926.36.31.678.92.678 1.852 0 1.338-.012 2.415-.012 2.743 0 .269.18.58.688.482C19.135 20.164 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+                            </svg>
+                        </a>
+                        <a class="hover:opacity-75" href="#" target="_blank" rel="noreferrer">
+                            <span class="sr-only">LinkedIn</span>
+                            <svg class="w-6 h-6 text-purple-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path d="M100.28 448H7.4V148.9h92.68zM53.79 108.1C24.09 108.1 0 83.48 0 53.64 0 23.55 24.34 0 54.79 0c30.91 0 53.79 23.16 53.79 53.64 0 29.84-22.88 54.46-54.79 54.46zM447.9 448h-92.68V302.4c0-34.7-.69-79.33-48.32-79.33-48.36 0-55.8 37.74-55.8 76.7V448H158.4V148.9h89.06v40.8h1.3c12.38-23.44 42.63-48.32 87.72-48.32 93.69 0 111.09 61.64 111.09 141.82V448z" />
+                            </svg>
+                        </a>
+
+                        <!-- Facebook -->
+                        <a class="hover:opacity-75" href="#" target="_blank" rel="noreferrer">
+                            <span class="sr-only">Facebook</span>
+                            <svg class="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path fillRule="evenodd"
+                                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                                    clipRule="evenodd" />
+                            </svg>
+                        </a>
+
+                        <!-- Instagram -->
+                        <a class="hover:opacity-75" href="#" target="_blank" rel="noreferrer">
+                            <span class="sr-only">Instagram</span>
+                            <svg class="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path fillRule="evenodd"
+                                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                                    clipRule="evenodd" />
+                            </svg>
+                        </a>
+
+                        <!-- Twitter -->
+                        <a class="hover:opacity-75" href="#" target="_blank" rel="noreferrer">
+                            <span class="sr-only">Twitter</span>
+                            <svg class="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path
+                                    d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.051a4.107 4.107 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                            </svg>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="grid grid-cols-1 gap-8 lg:col-span-2 sm:grid-cols-2 lg:grid-cols-4">
+                    <div>
+                        <p class="font-medium">
+                            Find events
+                        </p>
+                        <nav class="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
+                            <a class="hover:opacity-75" href> Washington Events </a>
+                            <a class="hover:opacity-75" href> Chicago Christmas Events </a>
+                            <a class="hover:opacity-75" href> Ibadan Events </a>
+                            <a class="hover:opacity-75" href> Lagos Christmas Events </a>
+                            <a class="hover:opacity-75" href> Lagos Christmas Events </a>
+                        </nav>
+                    </div>
+                    <div>
+                        <p class="font-medium">
+                            Plan an event
+                        </p>
+                        <nav class="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
+                            <a class="hover:opacity-75" href> Sell Tickets Online </a>
+                            <a class="hover:opacity-75" href> Event Planning </a>
+                            <a class="hover:opacity-75" href> Christmas party planning </a>
+                            <a class="hover:opacity-75" href> Event management software </a>
+                            <a class="hover:opacity-75" href> Post your event online </a>
+                        </nav>
+                    </div>
+                    <div>
+                        <p class="font-medium">
+                            Helpful Links
+                        </p>
+                        <nav class="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
+                            <a class="hover:opacity-75" href> Contact </a>
+                            <a class="hover:opacity-75" href> FAQs </a>
+                            <a class="hover:opacity-75" href> Live Chat </a>
+                        </nav>
+                    </div>
+
+                </div>
+            </div>
+            <p class="mt-8 text-xs text-gray-800">
+                © 2024 Event Brite
+            </p>
+        </div>
+    </footer>
+</body>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
+    integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous">
+    </script>
+<script>
+    $(document).ready(function () {
+        $(".nav-toggler").each(function (_, navToggler) {
+            var target = $(navToggler).data("target");
+            $(navToggler).on("click", function () {
+                $(target).animate({
+                    height: "toggle"
+                });
+            });
+        });
+    });
+</script>
+</script>
+
+    <!-- <a href="./index.html">about</a>
+    <li id="about">About</li>
+    <script>
+        let about = document.getElementById('about')
+        about.addEventListener('click', ()=>{
+            window.location.href = "./index.html"
+        })
+    </script> -->
+</html>
