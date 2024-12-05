@@ -23,17 +23,45 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
             font-family: "Raleway", sans-serif;
         }
 
+        * {
+            /* outline: 1px solid; */
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #8A2BE2;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #dadada;
+        }
+
         @media (min-width: 1024px) {
             .top-navbar {
                 display: inline-flex !important;
             }
         }
 
-        @media (max-width: 408px) {
+        @media (max-width: 768px) {
             #search {
                 width: 100%;
             }
+
+            #allevents {
+                padding: 5px;
+                margin-top: 3rem;
+                margin-bottom: 3rem;
+            }
+
+            #hero {
+                margin: 5px;
+
+            }
         }
+
         @media (max-width: 1110px) {
             .reg {
                 flex-direction: column;
@@ -42,7 +70,7 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
         }
     </style>
     <nav
-        class="sticky top-0 z-50 bg-white/50 flex items-center backdrop-blur-md p-3 shadow-md flex-wrap transition-all duration-300">
+        class="sticky top-0 z-50 bg-white/50 flex items-center backdrop-blur-md p-3 flex-wrap transition-all duration-300">
 
         <a href="#" class="p-2 mr-4 inline-flex items-center">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +86,7 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
             <i class="material-icons">menu</i>
         </button>
         <div class="flex rounded-md border border-purple overflow-hidden max-w-md mx-auto w-80 " id="search">
-            <input type="email" placeholder="Search Events and Location..."
+            <input type="text" placeholder="Search Events and Location..."
                 class="w-full outline-none bg-white text-gray-600 text-sm px-4 py-3" />
             <button type='button' class="flex items-center justify-center bg-[#8A2BE2] px-5">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192.904 192.904" width="16px" class="fill-white">
@@ -72,38 +100,59 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
             <div
                 class="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto">
                 <a href="#"
-                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center hover:bg-purple-600 hover:text-white">
+                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center ">
                     <span>Discover events</span>
                 </a>
                 <a href="#"
-                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center hover:bg-purple-600 hover:text-white">
+                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center ">
                     <span>Start an event</span>
                 </a>
                 <a href="#"
-                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center hover:bg-purple-600 hover:text-white">
+                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center ">
                     <span>My Tickets</span>
                 </a>
                 <div style="display: flex; gap: 0.5rem;" class="reg">
                     <a href="#"
-                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 bg-purple-600 text-white rounded text-purple-900 items-center justify-center hover:bg-purple-500 hover:text-white"
-                    id="login">
-                    <span>Login</span>
-                </a>
-                <a href="#"
-                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 bg-purple-600 text-white rounded text-purple-900 items-center justify-center hover:bg-purple-500 hover:text-white"
-                    id="Signup">
-                    <span>Signup</span>
-                </a>
+                        class="lg:inline-flex lg:w-auto w-full px-3 py-2 bg-purple-600 text-white rounded text-purple-900 items-center justify-center hover:bg-purple-500 hover:text-white"
+                        id="login">
+                        <span>Login</span>
+                    </a>
+                    <a href="#"
+                        class="lg:inline-flex lg:w-auto w-full px-3 py-2 bg-purple-600 text-white rounded text-purple-900 items-center justify-center hover:bg-purple-500 hover:text-white"
+                        id="Signup">
+                        <span>Signup</span>
+                    </a>
                 </div>
             </div>
         </div>
     </nav>
-    <hr style=" border: 1px solid purple;">
+    <section
+        class="flex flex-col-reverse md:flex-row rounded-lg items-center justify-between mx-6 my-6 px-6 md:px-16 lg:px-24 py-12 md:py-20 bg-gradient-to-r from-blue-600 to-purple-500 text-white"
+        id="hero">
+        <!-- Left Content -->
+        <div class="text-center md:text-left md:max-w-md">
+            <h1 class="text-4xl md:text-5xl font-bold  mb-4">
+                Effortlessly Manage Your Events
+            </h1>
+            <p class="text-lg md:text-xl mb-6">
+                Plan, organize, and execute events seamlessly with EventFlow.
+            </p>
+            <a href="#get-started"
+                class="inline-block bg-white text-blue-600 font-medium py-3 px-6 rounded-lg shadow-md hover:bg-gray-100 transition">
+                Get Started
+            </a>
+        </div>
 
+        <!-- Right Image -->
+        <div class="w-full md:w-1/2">
+            <img src="https://via.placeholder.com/600x400" alt="Event Management Illustration"
+                class="w-full h-auto rounded-lg shadow-lg">
+        </div>
+    </section>
 
     <!-- events in a state -->
-    <div class=" min-h-screen py-32 px-10 ">
-        <h1 class="md:text-1xl text-xl hover:text-purple-600 transition duration-200  font-bold text-black-900 ">
+    <div class=" min-h-screen py-32 px-10 " id="allevents">
+        <h1 class="md:text-1xl text-xl text-center hover:text-purple-600 transition duration-200  font-bold text-black-900 ">
             EVENTS IN <span>IBADAN</span> </h1>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-10 xl-grid-cols-4 gap-y-10 gap-x-6 ">
 
@@ -207,15 +256,18 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
                     <div class="flex mt-4 space-x-6 text-gray-600">
                         <a class="hover:opacity-75" href="#" target="_blank" rel="noreferrer">
                             <span class="sr-only">GitHub</span>
-                            <svg class="w-6 h-6 text-purple-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 text-purple-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24">
                                 <path
                                     d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.867 8.166 6.839 9.489.5.092.683-.217.683-.483 0-.237-.008-.868-.013-1.703-2.782.603-3.369-1.342-3.369-1.342-.454-1.157-1.11-1.465-1.11-1.465-.908-.62.069-.607.069-.607 1.004.07 1.532 1.033 1.532 1.033.892 1.528 2.341 1.087 2.91.832.092-.646.35-1.087.635-1.338-2.22-.253-4.555-1.11-4.555-4.934 0-1.09.39-1.981 1.03-2.679-.103-.253-.447-1.27.098-2.645 0 0 .84-.27 2.75 1.026A9.56 9.56 0 0112 6.8c.85.004 1.706.115 2.507.338 1.91-1.296 2.75-1.026 2.75-1.026.546 1.375.202 2.392.1 2.645.64.698 1.03 1.589 1.03 2.679 0 3.833-2.337 4.677-4.565 4.926.36.31.678.92.678 1.852 0 1.338-.012 2.415-.012 2.743 0 .269.18.58.688.482C19.135 20.164 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
                             </svg>
                         </a>
                         <a class="hover:opacity-75" href="#" target="_blank" rel="noreferrer">
                             <span class="sr-only">LinkedIn</span>
-                            <svg class="w-6 h-6 text-purple-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                <path d="M100.28 448H7.4V148.9h92.68zM53.79 108.1C24.09 108.1 0 83.48 0 53.64 0 23.55 24.34 0 54.79 0c30.91 0 53.79 23.16 53.79 53.64 0 29.84-22.88 54.46-54.79 54.46zM447.9 448h-92.68V302.4c0-34.7-.69-79.33-48.32-79.33-48.36 0-55.8 37.74-55.8 76.7V448H158.4V148.9h89.06v40.8h1.3c12.38-23.44 42.63-48.32 87.72-48.32 93.69 0 111.09 61.64 111.09 141.82V448z" />
+                            <svg class="w-6 h-6 text-purple-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 448 512">
+                                <path
+                                    d="M100.28 448H7.4V148.9h92.68zM53.79 108.1C24.09 108.1 0 83.48 0 53.64 0 23.55 24.34 0 54.79 0c30.91 0 53.79 23.16 53.79 53.64 0 29.84-22.88 54.46-54.79 54.46zM447.9 448h-92.68V302.4c0-34.7-.69-79.33-48.32-79.33-48.36 0-55.8 37.74-55.8 76.7V448H158.4V148.9h89.06v40.8h1.3c12.38-23.44 42.63-48.32 87.72-48.32 93.69 0 111.09 61.64 111.09 141.82V448z" />
                             </svg>
                         </a>
 
@@ -316,7 +368,7 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
 </script>
 </script>
 
-    <!-- <a href="./index.html">about</a>
+<!-- <a href="./index.html">about</a>
     <li id="about">About</li>
     <script>
         let about = document.getElementById('about')
@@ -324,4 +376,5 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
             window.location.href = "./index.html"
         })
     </script> -->
+
 </html>
