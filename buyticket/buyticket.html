@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buy Tickets</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+         html,
+        body {
+            font-family: "Raleway", sans-serif;
+        }
+    .animate-bounce-once {
+      animation: bounce 1s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 py-10">
+
+  <!-- Header Section -->
+  <header class="bg-purple-600 text-white py-6">
+    <div class="container mx-auto text-center">
+      <h1 class="text-3xl md:text-4xl font-bold">Complete Your Ticket Purchase</h1>
+      <p class="text-lg mt-2">Secure your spot for the event!</p>
+    </div>
+  </header>
+
+  <!-- Ticket Purchase Form -->
+  <main class="container mx-auto py-10 px-6">
+    <div class="bg-white shadow-md rounded-lg p-8 max-w-2xl mx-auto">
+      <h2 class="text-2xl font-bold mb-6">Ticket Details</h2>
+      
+      <!-- Form -->
+      <form action="#" method="POST">
+        <!-- Full Name -->
+        <div class="mb-4">
+          <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+          <input 
+            type="text" 
+            id="name" 
+            name="name" 
+            required 
+            class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
+        </div>
+
+        <!-- Email -->
+        <div class="mb-4">
+          <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            required 
+            class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
+        </div>
+
+        <!-- Ticket Options -->
+        <div class="mb-4">
+          <label for="ticket-type" class="block text-gray-700 font-medium mb-2">Select Ticket Type</label>
+          <select 
+            id="ticket-type" 
+            name="ticket-type" 
+            required 
+            class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
+            <option value="general">General Admission - $5</option>
+            <option value="vip">VIP Pass - $15</option>
+          </select>
+        </div>
+
+        <!-- Quantity -->
+        <div class="mb-4">
+          <label for="quantity" class="block text-gray-700 font-medium mb-2">Quantity</label>
+          <input 
+            type="number" 
+            id="quantity" 
+            name="quantity" 
+            min="1" 
+            max="10" 
+            required 
+            class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
+        </div>
+
+        <!-- Payment Section -->
+        <div class="mb-6">
+          <p class="text-gray-600 mb-2">Total: <span id="total" class="font-bold text-purple-600">$0.00</span></p>
+          <small class="text-gray-500">Payment details will be provided on the next page.</small>
+        </div>
+
+        <!-- Submit Button -->
+        <button 
+          type="submit" 
+          class="w-full bg-purple-600 text-white px-4 py-2 rounded-lg text-lg shadow-md hover:bg-purple-700 transition animate-bounce-once" id="payment">
+          Proceed to Payment
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6 mt-10">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2024 EventFlow. All rights reserved.</p>
+    </div>
+    <a href="../payment/payment.html"></a>
+  </footer>
+
+</body>
+<script>
+        let payment = document.getElementById("payment")
+    payment.addEventListener('click', () => {
+        window.location.href = "../payment/payment.html"
+    })
+</script>
+</html>

@@ -9,7 +9,7 @@
 
 </head>
 
-<body>
+<body class="relative">
     <!-- Main Color: Vibrant Blue (#007BFF) or Electric Purple (#8A2BE2).
 Accent Color: Bright Teal (#00D4A9).
 Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
@@ -126,6 +126,48 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
             </div>
         </div>
     </nav>
+    
+  <!-- Signup  -->
+  <div id="signupModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+    <div class="bg-white rounded-lg shadow-lg p-8 w-11/12 max-w-md">
+      <h2 class="text-2xl font-bold mb-4 text-center text-purple-600">Create Your Account</h2>
+      <form>
+        <!-- Name -->
+        <div class="mb-4">
+          <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+          <input 
+            type="text" 
+            id="name" 
+            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+        </div>
+
+        <!-- Email -->
+        <div class="mb-4">
+          <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+          <input 
+            type="email" 
+            id="email" 
+            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+        </div>
+
+        <!-- Password -->
+        <div class="mb-4">
+          <label for="password" class="block text-gray-700 font-medium mb-2">Password</label>
+          <input 
+            type="password" 
+            id="password" 
+            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+        </div>
+
+        <!-- Submit Button -->
+        <button 
+          type="submit" 
+          class="w-full bg-purple-600 text-white py-2 rounded-lg font-bold hover:bg-purple-700 transition" id="signup">
+          Sign Up
+        </button>
+      </form>
+    </div>
+  </div>
     <section
         class="flex flex-col-reverse md:flex-row rounded-lg items-center justify-between mx-6 my-6 px-6 md:px-16 lg:px-24 py-12 md:py-20 bg-gradient-to-r from-blue-600 to-purple-500 text-white"
         id="hero">
@@ -149,94 +191,278 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
                 class="w-full h-auto rounded-lg shadow-lg">
         </div>
     </section>
-
     <!-- events in a state -->
     <div class=" min-h-screen py-32 px-10 " id="allevents">
-        <h1 class="md:text-1xl text-xl text-center hover:text-purple-600 transition duration-200  font-bold text-black-900 ">
+        <h1
+            class="md:text-1xl text-xl text-center hover:text-purple-600 transition duration-200  font-bold text-black-900 ">
             EVENTS IN <span>IBADAN</span> </h1>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-10 xl-grid-cols-4 gap-y-10 gap-x-6 ">
 
-            <div class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
-                <img src="https://images.unsplash.com/photo-1627751476653-e954179b174a" alt=""
-                    class="rounded-t-lg w-full">
-                <div class="p-6">
+            <div class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300 cursor-pointer"
+                id="event1">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1627751476653-e954179b174a" alt=""
+                        class="rounded-t-lg w-full">
+                    <button
+                        class="absolute bottom-2 right-2 bg-purple-600 text-white px-5 py-4 rounded-lg text-x2 font-medium shadow-md hover:bg-purple-700 transition">
+                        $5.00
+                    </button>
+                </div>
+                <div class="p-4">
                     <h1
                         class="md:text-1xl text-xl hover:text-indigo-600 transition duration-200  font-bold text-black-900 ">
                         Ibadan Palm Wine Hangout</h1>
-                    <p class="text-gray-900 my-2 hover-text-900 ">Sat, Dec 21 • 9:00 AM.</p>
-                    <b class="text-gray-700 my-2 hover-text-900 "><span>Venue: </span>Work and Play Race Arena (xKarting
-                        race), Bodija Ibadan.</b> <br><br>
-                    <b class="text-gray-700 my-2 hover-text-900 ">From: $5.00</b>
+                    <div class="flex items-center space-x-2 text-sm mb-2">
+                        <!-- Date -->
+                        <div class="flex items-center bg-purple-100 text-purple-600 px-3 py-1 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-4 h-4 mr-1"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M7 2v2H5a2 2 0 00-2 2v13a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2h-2V2h-2v2H9V2H7zm-2 6h14v11H5V8zm2 3v2h4v-2H7zm0 4v2h4v-2H7z">
+                                </path>
+                            </svg>
+                            Dec 21
+                        </div>
+                        <!-- Venue -->
+                        <div class="flex items-center bg-purple-100 text-purple-600 px-3 py-1 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-4 h-4 mr-1"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7zm0 2a5 5 0 015 5c0 3.19-3.06 7.71-5 9.88C10.06 16.71 7 12.19 7 9a5 5 0 015-5zm0 2a3 3 0 100 6 3 3 0 000-6z">
+                                </path>
+                            </svg>
+                            Bodija, Ibadan
+                        </div>
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis pariatur, possimus amet odio
+                        perferendis, reprehenderit adipisci vero esse eaque at quaerat et ea unde. Delectus, atque! Hic
+                        dolore necessitatibus cumque!
+                    </p>
                 </div>
             </div>
-            <div class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
-                <img src="https://images.unsplash.com/photo-1572431447238-425af66a273b" alt=""
-                    class="rounded-t-lg w-full">
-                <div class="p-6">
+            <div class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300 cursor-pointer"
+                id="event1">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1627751476653-e954179b174a" alt=""
+                        class="rounded-t-lg w-full">
+                    <button
+                        class="absolute bottom-2 right-2 bg-purple-600 text-white px-5 py-4 rounded-lg text-x2 font-medium shadow-md hover:bg-purple-700 transition">
+                        $5.00
+                    </button>
+                </div>
+                <div class="p-4">
                     <h1
                         class="md:text-1xl text-xl hover:text-indigo-600 transition duration-200  font-bold text-black-900 ">
                         Ibadan Palm Wine Hangout</h1>
-                    <p class="text-gray-900 my-2 hover-text-900 ">Sat, Dec 21 • 9:00 AM.</p>
-                    <b class="text-gray-700 my-2 hover-text-900 "><span>Venue: </span>Work and Play Race Arena (xKarting
-                        race), Bodija Ibadan.</b> <br><br>
-                    <b class="text-gray-700 my-2 hover-text-900 ">From: $5.00</b>
+                    <div class="flex items-center space-x-2 text-sm mb-2">
+                        <!-- Date -->
+                        <div class="flex items-center bg-purple-100 text-purple-600 px-3 py-1 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-4 h-4 mr-1"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M7 2v2H5a2 2 0 00-2 2v13a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2h-2V2h-2v2H9V2H7zm-2 6h14v11H5V8zm2 3v2h4v-2H7zm0 4v2h4v-2H7z">
+                                </path>
+                            </svg>
+                            Dec 21
+                        </div>
+                        <!-- Venue -->
+                        <div class="flex items-center bg-purple-100 text-purple-600 px-3 py-1 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-4 h-4 mr-1"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7zm0 2a5 5 0 015 5c0 3.19-3.06 7.71-5 9.88C10.06 16.71 7 12.19 7 9a5 5 0 015-5zm0 2a3 3 0 100 6 3 3 0 000-6z">
+                                </path>
+                            </svg>
+                            Bodija, Ibadan
+                        </div>
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis pariatur, possimus amet odio
+                        perferendis, reprehenderit adipisci vero esse eaque at quaerat et ea unde. Delectus, atque! Hic
+                        dolore necessitatibus cumque!
+                    </p>
                 </div>
             </div>
-            <div class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
-                <img src="https://images.unsplash.com/photo-1540202404-1b927e27fa8b" alt="" class="rounded-t-lg w-full">
-                <div class="p-6">
+
+
+            <div class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300 cursor-pointer"
+                id="event1">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1627751476653-e954179b174a" alt=""
+                        class="rounded-t-lg w-full">
+                    <button
+                        class="absolute bottom-2 right-2 bg-purple-600 text-white px-5 py-4 rounded-lg text-x2 font-medium shadow-md hover:bg-purple-700 transition">
+                        $5.00
+                    </button>
+                </div>
+                <div class="p-4">
                     <h1
                         class="md:text-1xl text-xl hover:text-indigo-600 transition duration-200  font-bold text-black-900 ">
                         Ibadan Palm Wine Hangout</h1>
-                    <p class="text-gray-900 my-2 hover-text-900 ">Sat, Dec 21 • 9:00 AM.</p>
-                    <b class="text-gray-700 my-2 hover-text-900 "><span>Venue: </span>Work and Play Race Arena (xKarting
-                        race), Bodija Ibadan.</b> <br><br>
-                    <b class="text-gray-700 my-2 hover-text-900 ">From: $5.00</b>
+                    <div class="flex items-center space-x-2 text-sm mb-2">
+                        <!-- Date -->
+                        <div class="flex items-center bg-purple-100 text-purple-600 px-3 py-1 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-4 h-4 mr-1"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M7 2v2H5a2 2 0 00-2 2v13a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2h-2V2h-2v2H9V2H7zm-2 6h14v11H5V8zm2 3v2h4v-2H7zm0 4v2h4v-2H7z">
+                                </path>
+                            </svg>
+                            Dec 21
+                        </div>
+                        <!-- Venue -->
+                        <div class="flex items-center bg-purple-100 text-purple-600 px-3 py-1 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-4 h-4 mr-1"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7zm0 2a5 5 0 015 5c0 3.19-3.06 7.71-5 9.88C10.06 16.71 7 12.19 7 9a5 5 0 015-5zm0 2a3 3 0 100 6 3 3 0 000-6z">
+                                </path>
+                            </svg>
+                            Bodija, Ibadan
+                        </div>
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis pariatur, possimus amet odio
+                        perferendis, reprehenderit adipisci vero esse eaque at quaerat et ea unde. Delectus, atque! Hic
+                        dolore necessitatibus cumque!
+                    </p>
                 </div>
             </div>
-            <div class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
-                <img src="https://images.unsplash.com/photo-1506790409786-287062b21cfe" alt=""
-                    class="rounded-t-lg w-full">
-                <div class="p-6">
+            <div class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300 cursor-pointer"
+                id="event1">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1627751476653-e954179b174a" alt=""
+                        class="rounded-t-lg w-full">
+                    <button
+                        class="absolute bottom-2 right-2 bg-purple-600 text-white px-5 py-4 rounded-lg text-x2 font-medium shadow-md hover:bg-purple-700 transition">
+                        $5.00
+                    </button>
+                </div>
+                <div class="p-4">
                     <h1
                         class="md:text-1xl text-xl hover:text-indigo-600 transition duration-200  font-bold text-black-900 ">
                         Ibadan Palm Wine Hangout</h1>
-                    <p class="text-gray-900 my-2 hover-text-900 ">Sat, Dec 21 • 9:00 AM.</p>
-                    <b class="text-gray-700 my-2 hover-text-900 "><span>Venue: </span>Work and Play Race Arena (xKarting
-                        race), Bodija Ibadan.</b> <br><br>
-                    <b class="text-gray-700 my-2 hover-text-900 ">From: $5.00</b>
+                    <div class="flex items-center space-x-2 text-sm mb-2">
+                        <!-- Date -->
+                        <div class="flex items-center bg-purple-100 text-purple-600 px-3 py-1 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-4 h-4 mr-1"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M7 2v2H5a2 2 0 00-2 2v13a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2h-2V2h-2v2H9V2H7zm-2 6h14v11H5V8zm2 3v2h4v-2H7zm0 4v2h4v-2H7z">
+                                </path>
+                            </svg>
+                            Dec 21
+                        </div>
+                        <!-- Venue -->
+                        <div class="flex items-center bg-purple-100 text-purple-600 px-3 py-1 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-4 h-4 mr-1"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7zm0 2a5 5 0 015 5c0 3.19-3.06 7.71-5 9.88C10.06 16.71 7 12.19 7 9a5 5 0 015-5zm0 2a3 3 0 100 6 3 3 0 000-6z">
+                                </path>
+                            </svg>
+                            Bodija, Ibadan
+                        </div>
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis pariatur, possimus amet odio
+                        perferendis, reprehenderit adipisci vero esse eaque at quaerat et ea unde. Delectus, atque! Hic
+                        dolore necessitatibus cumque!
+                    </p>
                 </div>
             </div>
-            <div class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
-                <img src="https://images.unsplash.com/photo-1505881502353-a1986add3762" alt=""
-                    class="rounded-t-lg w-full">
-                <div class="p-6">
+            <div class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300 cursor-pointer"
+                id="event1">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1627751476653-e954179b174a" alt=""
+                        class="rounded-t-lg w-full">
+                    <button
+                        class="absolute bottom-2 right-2 bg-purple-600 text-white px-5 py-4 rounded-lg text-x2 font-medium shadow-md hover:bg-purple-700 transition">
+                        $5.00
+                    </button>
+                </div>
+                <div class="p-4">
                     <h1
                         class="md:text-1xl text-xl hover:text-indigo-600 transition duration-200  font-bold text-black-900 ">
                         Ibadan Palm Wine Hangout</h1>
-                    <p class="text-gray-900 my-2 hover-text-900 ">Sat, Dec 21 • 9:00 AM.</p>
-                    <b class="text-gray-700 my-2 hover-text-900 "><span>Venue: </span>Work and Play Race Arena (xKarting
-                        race), Bodija Ibadan.</b> <br><br>
-                    <b class="text-gray-700 my-2 hover-text-900 ">From: $5.00</b>
+                    <div class="flex items-center space-x-2 text-sm mb-2">
+                        <!-- Date -->
+                        <div class="flex items-center bg-purple-100 text-purple-600 px-3 py-1 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-4 h-4 mr-1"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M7 2v2H5a2 2 0 00-2 2v13a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2h-2V2h-2v2H9V2H7zm-2 6h14v11H5V8zm2 3v2h4v-2H7zm0 4v2h4v-2H7z">
+                                </path>
+                            </svg>
+                            Dec 21
+                        </div>
+                        <!-- Venue -->
+                        <div class="flex items-center bg-purple-100 text-purple-600 px-3 py-1 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-4 h-4 mr-1"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7zm0 2a5 5 0 015 5c0 3.19-3.06 7.71-5 9.88C10.06 16.71 7 12.19 7 9a5 5 0 015-5zm0 2a3 3 0 100 6 3 3 0 000-6z">
+                                </path>
+                            </svg>
+                            Bodija, Ibadan
+                        </div>
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis pariatur, possimus amet odio
+                        perferendis, reprehenderit adipisci vero esse eaque at quaerat et ea unde. Delectus, atque! Hic
+                        dolore necessitatibus cumque!
+                    </p>
                 </div>
             </div>
-            <div class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300">
-                <img src="https://images.unsplash.com/photo-1544473244-f6895e69ad8b" alt="" class="rounded-t-lg w-full">
-                <div class="p-6">
+            <div class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300 cursor-pointer"
+                id="event1">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1627751476653-e954179b174a" alt=""
+                        class="rounded-t-lg w-full">
+                    <button
+                        class="absolute bottom-2 right-2 bg-purple-600 text-white px-5 py-4 rounded-lg text-x2 font-medium shadow-md hover:bg-purple-700 transition">
+                        $5.00
+                    </button>
+                </div>
+                <div class="p-4">
                     <h1
                         class="md:text-1xl text-xl hover:text-indigo-600 transition duration-200  font-bold text-black-900 ">
                         Ibadan Palm Wine Hangout</h1>
-                    <p class="text-gray-900 my-2 hover-text-900 ">Sat, Dec 21 • 9:00 AM.</p>
-                    <b class="text-gray-700 my-2 hover-text-900 "><span>Venue: </span>Work and Play Race Arena (xKarting
-                        race), Bodija Ibadan.</b> <br><br>
-                    <b class="text-gray-700 my-2 hover-text-900 ">From: $5.00</b>
+                    <div class="flex items-center space-x-2 text-sm mb-2">
+                        <!-- Date -->
+                        <div class="flex items-center bg-purple-100 text-purple-600 px-3 py-1 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-4 h-4 mr-1"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M7 2v2H5a2 2 0 00-2 2v13a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2h-2V2h-2v2H9V2H7zm-2 6h14v11H5V8zm2 3v2h4v-2H7zm0 4v2h4v-2H7z">
+                                </path>
+                            </svg>
+                            Dec 21
+                        </div>
+                        <!-- Venue -->
+                        <div class="flex items-center bg-purple-100 text-purple-600 px-3 py-1 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-4 h-4 mr-1"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7zm0 2a5 5 0 015 5c0 3.19-3.06 7.71-5 9.88C10.06 16.71 7 12.19 7 9a5 5 0 015-5zm0 2a3 3 0 100 6 3 3 0 000-6z">
+                                </path>
+                            </svg>
+                            Bodija, Ibadan
+                        </div>
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis pariatur, possimus amet odio
+                        perferendis, reprehenderit adipisci vero esse eaque at quaerat et ea unde. Delectus, atque! Hic
+                        dolore necessitatibus cumque!
+                    </p>
                 </div>
             </div>
 
         </div>
     </div>
 
-    <!-- More events -->
+
 
 
     <!-- Footer -->
@@ -353,7 +579,7 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
     integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous">
-    </script>
+</script>
 <script>
     $(document).ready(function () {
         $(".nav-toggler").each(function (_, navToggler) {
@@ -365,7 +591,29 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
             });
         });
     });
-</script>
+    let event1 = document.getElementById("event1")
+    event1.addEventListener('click', () => {
+        window.location.href = "./event1/event1.html"
+    })
+    let signup = document.getElementById("signup")
+
+    
+    const openSignup = document.getElementById("Signup");
+    const signupModal = document.getElementById("signupModal");
+    const homepage = document.getElementById("homepage");
+
+    // Open Modal
+    openSignup.addEventListener("click", () => {
+      signupModal.classList.remove("hidden");
+      homepage.classList.add("filter", "blur-sm");
+    });
+
+    // Close Modal
+    closeSignup.addEventListener("click", () => {
+      signupModal.classList.add("hidden");
+      homepage.classList.remove("filter", "blur-sm");
+    });
+
 </script>
 
 <!-- <a href="./index.html">about</a>

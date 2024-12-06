@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<style>
+    html,
+    body {
+        font-family: "Raleway", sans-serif;
+    }
+
+    * {
+        /* outline: 1px solid; */
+    }
+
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #8A2BE2;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: #dadada;
+    }
+
+    @media (min-width: 1024px) {
+        .top-navbar {
+            display: inline-flex !important;
+        }
+    }
+
+    @media (max-width: 768px) {
+        #search {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 1110px) {
+        .reg {
+            flex-direction: column;
+            width: 100%;
+        }
+    }
+/* Animation for call-to-action buttons */
+.animate-pulse-once {
+  animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+</style>
+<body>
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css"
+    integrity="sha256-x8PYmLKD83R9T/sYmJn1j3is/chhJdySyhet/JuHnfY=" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <nav
+        class="sticky top-0 z-50 bg-white/50 flex items-center backdrop-blur-md p-3 flex-wrap transition-all duration-300">
+
+        <a href="#" class="p-2 mr-4 inline-flex items-center">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                class="fill-current text-purple-800 h-8 w-8 mr-2">
+                <path
+                    d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z" />
+            </svg>
+            <span class="text-xl text-purple-700 font-bold uppercase tracking-wide">EVENTFLOW</span>
+        </a>
+        <button
+            class="text-purple-700 inline-flex p-3 hover:bg-purple-700 rounded lg:hidden ml-auto hover:text-white outline-none nav-toggler"
+            data-target="#navigation">
+            <i class="material-icons">menu</i>
+        </button>
+   
+        <div class="hidden top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto" id="navigation">
+            <div
+                class="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto">
+                <a href="#"
+                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center ">
+                    <span>Discover events</span>
+                </a>
+                <a href="#"
+                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center ">
+                    <span>Start an event</span>
+                </a>
+                <a href="#"
+                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center ">
+                    <span>My Tickets</span>
+                </a>
+                <div style="display: flex; gap: 0.5rem;" class="reg">
+                    <a href="#"
+                        class="lg:inline-flex lg:w-auto w-full px-3 py-2 bg-purple-600 text-white rounded text-purple-900 items-center justify-center hover:bg-purple-500 hover:text-white"
+                        id="login">
+                        <span>Login</span>
+                    </a>
+                    <a href="#"
+                        class="lg:inline-flex lg:w-auto w-full px-3 py-2 bg-purple-600 text-white rounded text-purple-900 items-center justify-center hover:bg-purple-500 hover:text-white"
+                        id="Signup">
+                        <span>Signup</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    
+  <!-- Hero Section -->
+  <header class="relative">
+    <img 
+      src="https://images.unsplash.com/photo-1572431447238-425af66a273b" 
+      alt="Event Hero" 
+      class="w-full h-[60vh] object-cover">
+    <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white text-center">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">Ibadan Palm Wine Hangout</h1>
+      <button 
+      class="bg-purple-600 text-white px-6 py-3 rounded-lg text-lg shadow-md hover:bg-purple-700 transition animate-pulse-once" id="buyticket">
+      Buy Tickets Now
+      </button>
+    </div>
+  </header>
+
+  <!-- Countdown Section -->
+  <section class="py-8">
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+      <div class="bg-white shadow-md rounded-lg p-6">
+        <h2 class="text-3xl font-bold text-purple-600">10</h2>
+        <p class="text-gray-600">Days</p>
+    </div>
+      <div class="bg-white shadow-md rounded-lg p-6">
+        <h2 class="text-3xl font-bold text-purple-600">08</h2>
+        <p class="text-gray-600">Hours</p>
+      </div>
+      <div class="bg-white shadow-md rounded-lg p-6">
+          <h2 class="text-3xl font-bold text-purple-600">45</h2>
+          <p class="text-gray-600">Minutes</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Event Description Section -->
+  <section class="py-10 bg-gray-100 h-50 p-7">
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div>
+        <h2 class="text-2xl md:text-3xl font-bold mb-4">About the Event</h2>
+        <p class="text-gray-700 mb-6">
+            Experience the vibrant culture of Ibadan with delicious palm wine, music, and unforgettable moments. Join us for a day of fun, entertainment, and connections at the Work and Play Race Arena.
+        </p>
+        <button 
+          class="bg-purple-600 text-white px-6 py-3 rounded-lg text-lg shadow-md hover:bg-purple-700 transition animate-pulse-once" id="buyticket">
+          Few Tickets Left - Book Now
+        </button>
+      </div>
+      <div>
+        <img 
+          src="https://images.unsplash.com/photo-1503424886300-b5d8ac031416" 
+          alt="Event Venue" 
+          class="w-full rounded-lg shadow-lg">
+      </div>
+    </div>
+  </section>
+
+  <!-- Additional Sections -->
+  <section class="py-10 px-10">
+    <div class="container mx-auto text-center">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4">Why You Shouldn't Miss This Event</h2>
+        <p class="text-gray-700 max-w-2xl mx-auto mb-6">
+        Enjoy live performances, amazing food, and connect with people from all walks of life in a relaxing and exciting environment. Secure your spot now and make memories that last a lifetime!
+      </p>
+      <button 
+        class="bg-purple-600 text-white px-6 py-3 rounded-lg text-lg shadow-md hover:bg-purple-700 transition" id="buyticket">
+        Reserve Your Ticket
+      </button>
+    </div>
+  </section>
+
+  <!-- Call to Action for Event Creators -->
+  <section class="py-10 bg-purple-600 text-white text-center p-7">
+    <div class="container mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Want to Host Your Own Event?</h2>
+      <p class="text-lg mb-6">Sell tickets, reach a broader audience, and manage your event effortlessly with us.</p>
+      <button 
+        class="bg-white text-purple-600 px-6 py-3 rounded-lg text-lg shadow-md hover:bg-gray-100 transition">
+        Create Your Event Now
+    </button>
+</div>
+  </section>
+</body>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
+    integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous">
+    </script>
+<script>
+    $(document).ready(function () {
+        $(".nav-toggler").each(function (_, navToggler) {
+            var target = $(navToggler).data("target");
+            $(navToggler).on("click", function () {
+                $(target).animate({
+                    height: "toggle"
+                });
+            });
+        });
+    });
+    let buyticket = document.getElementById("buyticket")
+    buyticket.addEventListener('click', () => {
+        window.location.href = "../buyticket/buyticket.html"
+    })
+</script>
+
+</html>
