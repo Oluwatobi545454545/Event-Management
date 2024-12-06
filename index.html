@@ -9,7 +9,7 @@
 
 </head>
 
-<body class="relative">
+<body class="relative" id="homepage1">
     <!-- Main Color: Vibrant Blue (#007BFF) or Electric Purple (#8A2BE2).
 Accent Color: Bright Teal (#00D4A9).
 Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
@@ -464,7 +464,6 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
 
 
 
-
     <!-- Footer -->
     <footer class="bg-gradient-to-r from-purple-100 via-purple-200 to-purple-300 text-black-800">
         <div class="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
@@ -596,33 +595,26 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
         window.location.href = "./event1/event1.html"
     })
     let signup = document.getElementById("signup")
-
+    signup.addEventListener('click', () => {
+        window.location.href = "./payment/payment.html"
+    alert("You are signed up")        
+        
+    })
     
     const openSignup = document.getElementById("Signup");
     const signupModal = document.getElementById("signupModal");
-    const homepage = document.getElementById("homepage");
+    const homepage = document.getElementById("homepage1");
 
     // Open Modal
     openSignup.addEventListener("click", () => {
       signupModal.classList.remove("hidden");
-      homepage.classList.add("filter", "blur-sm");
+      console.log('hello');
+      
+    //   homepage.classList.add("filter", "blur-sm");
     });
 
-    // Close Modal
-    closeSignup.addEventListener("click", () => {
-      signupModal.classList.add("hidden");
-      homepage.classList.remove("filter", "blur-sm");
-    });
+
 
 </script>
-
-<!-- <a href="./index.html">about</a>
-    <li id="about">About</li>
-    <script>
-        let about = document.getElementById('about')
-        about.addEventListener('click', ()=>{
-            window.location.href = "./index.html"
-        })
-    </script> -->
 
 </html>
