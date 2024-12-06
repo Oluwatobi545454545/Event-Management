@@ -9,7 +9,7 @@
 
 </head>
 
-<body class="relative" id="homepage1">
+<body class="relative p-2" id="homepage1">
     <!-- Main Color: Vibrant Blue (#007BFF) or Electric Purple (#8A2BE2).
 Accent Color: Bright Teal (#00D4A9).
 Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
@@ -60,12 +60,31 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
                 margin: 5px;
 
             }
+            #heroimage{
+                display: none;
+            }
         }
 
         @media (max-width: 1110px) {
             .reg {
                 flex-direction: column;
                 width: 100%;
+            }
+        }
+
+        .animate-pulse-once {
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
             }
         }
     </style>
@@ -100,16 +119,16 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
             <div
                 class="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto">
                 <a href="#"
-                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center ">
+                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center hover:text-black">
                     <span>Discover events</span>
                 </a>
                 <a href="#"
-                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center ">
-                    <span>Start an event</span>
+                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center hover:text-black" id="selltickets">
+                    <span>Sell tickets</span>
                 </a>
                 <a href="#"
-                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center ">
-                    <span>My Tickets</span>
+                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center hover:text-black">
+                    <span>Find my tickets</span>
                 </a>
                 <div style="display: flex; gap: 0.5rem;" class="reg">
                     <a href="#"
@@ -126,75 +145,67 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
             </div>
         </div>
     </nav>
-    
-  <!-- Signup  -->
-  <div id="signupModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
-    <div class="bg-white rounded-lg shadow-lg p-8 w-11/12 max-w-md">
-      <h2 class="text-2xl font-bold mb-4 text-center text-purple-600">Create Your Account</h2>
-      <form>
-        <!-- Name -->
-        <div class="mb-4">
-          <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
-          <input 
-            type="text" 
-            id="name" 
-            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
-        </div>
 
-        <!-- Email -->
-        <div class="mb-4">
-          <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
-          <input 
-            type="email" 
-            id="email" 
-            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
-        </div>
+    <!-- Signup  -->
+    <div id="signupModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+        <div class="bg-white rounded-lg shadow-lg p-8 w-11/12 max-w-md">
+            <h2 class="text-2xl font-bold mb-4 text-center text-purple-600">Create Your Account</h2>
+            <form>
+                <!-- Name -->
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+                    <input type="text" id="name"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                </div>
 
-        <!-- Password -->
-        <div class="mb-4">
-          <label for="password" class="block text-gray-700 font-medium mb-2">Password</label>
-          <input 
-            type="password" 
-            id="password" 
-            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
-        </div>
+                <!-- Email -->
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                    <input type="email" id="email"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                </div>
 
-        <!-- Submit Button -->
-        <button 
-          type="submit" 
-          class="w-full bg-purple-600 text-white py-2 rounded-lg font-bold hover:bg-purple-700 transition" id="signup">
-          Sign Up
-        </button>
-      </form>
+                <!-- Password -->
+                <div class="mb-4">
+                    <label for="password" class="block text-gray-700 font-medium mb-2">Password</label>
+                    <input type="password" id="password"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit"
+                    class="w-full bg-purple-600 text-white py-2 rounded-lg font-bold hover:bg-purple-700 transition"
+                    id="signup">
+                    Sign Up
+                </button>
+            </form>
+        </div>
     </div>
-  </div>
-    <section
-        class="flex flex-col-reverse md:flex-row rounded-lg items-center justify-between mx-6 my-6 px-6 md:px-16 lg:px-24 py-12 md:py-20 bg-gradient-to-r from-blue-600 to-purple-500 text-white"
-        id="hero">
-        <!-- Left Content -->
-        <div class="text-center md:text-left md:max-w-md">
-            <h1 class="text-4xl md:text-5xl font-bold  mb-4">
-                Effortlessly Manage Your Events
-            </h1>
-            <p class="text-lg md:text-xl mb-6">
-                Plan, organize, and execute events seamlessly with EventFlow.
+    <header class="relative">
+        <img 
+          src="https://images.unsplash.com/photo-1572431447238-425af66a273b" 
+          alt="Event Hero" 
+          class="w-full h-[70vh] object-cover">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white text-center p-2">
+            <p class="text-lg md:text-xl ">
+                Book New Year Eve
             </p>
-            <a href="#get-started"
-                class="inline-block bg-white text-blue-600 font-medium py-3 px-6 rounded-lg shadow-md hover:bg-gray-100 transition">
-                Get Started
-            </a>
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Effortlessly Manage Your Events</h1>
+          <p class="text-lg md:text-xl mb-6">
+            Plan, organize, and execute events seamlessly with EventFlow.
+        </p>
+        
+          <button"
+          class="inline-block bg-white text-blue-600 font-medium py-4 px-16 rounded-lg shadow-md hover:bg-gray-100 transition animate-pulse-once">
+          Get Started
+          </button>
         </div>
-
-        <!-- Right Image -->
-        <div class="w-full md:w-1/2">
-            <img src="https://via.placeholder.com/600x400" alt="Event Management Illustration"
-                class="w-full h-auto rounded-lg shadow-lg">
-        </div>
-    </section>
+      </header>
+    
     <!-- events in a state -->
     <div class=" min-h-screen py-32 px-10 " id="allevents">
         <h1
-            class="md:text-1xl text-xl text-center hover:text-purple-600 transition duration-200  font-bold text-black-900 ">
+            class="text-4xl font-bold text-center hover:text-purple-600 transition duration-200  font-bold text-black-900 ">
             EVENTS IN <span>IBADAN</span> </h1>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-10 xl-grid-cols-4 gap-y-10 gap-x-6 ">
 
@@ -530,7 +541,7 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
                     </div>
 
                 </div>
-                <div class="grid grid-cols-1 gap-8 lg:col-span-2 sm:grid-cols-2 lg:grid-cols-4">
+                <div class="grid grid-cols-1 gap-8 lg:col-span-2 sm:grid-cols-2 lg:grid-cols-3">
                     <div>
                         <p class="font-medium">
                             Find events
@@ -569,16 +580,17 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
                 </div>
             </div>
             <p class="mt-8 text-xs text-gray-800">
-                © 2024 Event Brite
+                © 2024 EventFlow
             </p>
         </div>
     </footer>
+    <a href="./sellticket/sellticket.html"></a>
 </body>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
     integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous">
-</script>
+    </script>
 <script>
     $(document).ready(function () {
         $(".nav-toggler").each(function (_, navToggler) {
@@ -594,23 +606,28 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
     event1.addEventListener('click', () => {
         window.location.href = "./event1/event1.html"
     })
+    let selltickets = document.getElementById("selltickets")
+    selltickets.addEventListener('click', () => {
+        window.location.href = "./sellticket/sellticket.html"
+    })
+    
     let signup = document.getElementById("signup")
     signup.addEventListener('click', () => {
         window.location.href = "./payment/payment.html"
-    alert("You are signed up")        
-        
+        alert("You are signed up")
+
     })
-    
+
     const openSignup = document.getElementById("Signup");
     const signupModal = document.getElementById("signupModal");
     const homepage = document.getElementById("homepage1");
 
     // Open Modal
     openSignup.addEventListener("click", () => {
-      signupModal.classList.remove("hidden");
-      console.log('hello');
-      
-    //   homepage.classList.add("filter", "blur-sm");
+        signupModal.classList.remove("hidden");
+        console.log('hello');
+
+        // homepage.classList.add("filter", "blur-sm");
     });
 
 

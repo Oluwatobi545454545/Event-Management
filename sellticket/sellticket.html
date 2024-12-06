@@ -4,30 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buy Tickets</title>
+    <title>Sell Tickets</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        html,
-        body {
-            font-family: "Raleway", sans-serif;
-        }
+</head>
+<style>
+    html,
+    body {
+        font-family: "Raleway", sans-serif;
+    }
 
-        .animate-bounce-once {
-            animation: bounce 1s infinite;
-        }
-
-        @keyframes bounce {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-        ::-webkit-scrollbar {
+    ::-webkit-scrollbar {
         width: 6px;
     }
 
@@ -72,152 +58,178 @@
             width: 100%;
         }
     }
-    </style>
-</head>
+</style>
 
 <body class="bg-gray-50 ">
     <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css"
-    integrity="sha256-x8PYmLKD83R9T/sYmJn1j3is/chhJdySyhet/JuHnfY=" crossorigin="anonymous" />
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-<nav
-    class="sticky top-0 z-50 bg-white/50 flex items-center backdrop-blur-md p-3 flex-wrap transition-all duration-300">
+        href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css"
+        integrity="sha256-x8PYmLKD83R9T/sYmJn1j3is/chhJdySyhet/JuHnfY=" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <nav
+        class="sticky top-0 z-50 bg-white/50 flex items-center backdrop-blur-md p-3 flex-wrap transition-all duration-300">
 
-    <a href="#" class="p-2 mr-4 inline-flex items-center">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-            class="fill-current text-purple-800 h-8 w-8 mr-2">
-            <path
-                d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z" />
-        </svg>
-        <span class="text-xl text-purple-700 font-bold uppercase tracking-wide">EVENTFLOW</span>
-    </a>
-    <button
-        class="text-purple-700 inline-flex p-3 hover:bg-purple-700 rounded lg:hidden ml-auto hover:text-white outline-none nav-toggler"
-        data-target="#navigation">
-        <i class="material-icons">menu</i>
-    </button>
+        <a href="#" class="p-2 mr-4 inline-flex items-center">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                class="fill-current text-purple-800 h-8 w-8 mr-2">
+                <path
+                    d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z" />
+            </svg>
+            <span class="text-xl text-purple-700 font-bold uppercase tracking-wide">EVENTFLOW</span>
+        </a>
+        <button
+            class="text-purple-700 inline-flex p-3 hover:bg-purple-700 rounded lg:hidden ml-auto hover:text-white outline-none nav-toggler"
+            data-target="#navigation">
+            <i class="material-icons">menu</i>
+        </button>
 
-    <div class="hidden top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto" id="navigation">
-        <div
-            class="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto">
-            <a href="#"
-                class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center hover:text-black">
-                <span>Find my tickets</span>
-            </a>
-            <div style="display: flex; gap: 0.5rem;" class="reg">
+        <div class="hidden top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto" id="navigation">
+            <div
+                class="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto">
                 <a href="#"
-                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 bg-purple-600 text-white rounded text-purple-900 items-center justify-center hover:bg-purple-500 hover:text-white"
-                    id="login">
-                    <span>Login</span>
+                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center hover:text-black">
+                    <span>Find my tickets</span>
                 </a>
-                <a href="#"
-                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 bg-purple-600 text-white rounded text-purple-900 items-center justify-center hover:bg-purple-500 hover:text-white"
-                    id="Signup">
-                    <span>Signup</span>
-                </a>
+                <div style="display: flex; gap: 0.5rem;" class="reg">
+                    <a href="#"
+                        class="lg:inline-flex lg:w-auto w-full px-3 py-2 bg-purple-600 text-white rounded text-purple-900 items-center justify-center hover:bg-purple-500 hover:text-white"
+                        id="login">
+                        <span>Login</span>
+                    </a>
+                    <a href="#"
+                        class="lg:inline-flex lg:w-auto w-full px-3 py-2 bg-purple-600 text-white rounded text-purple-900 items-center justify-center hover:bg-purple-500 hover:text-white"
+                        id="Signup">
+                        <span>Signup</span>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-<!-- Signup  -->
-<div id="signupModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
-    <div class="bg-white rounded-lg shadow-lg p-8 w-11/12 max-w-md">
-        <h2 class="text-2xl font-bold mb-4 text-center text-purple-600">Create Your Account</h2>
-        <form>
-            <!-- Name -->
-            <div class="mb-4">
-                <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
-                <input type="text" id="name"
-                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
-            </div>
-
-            <!-- Email -->
-            <div class="mb-4">
-                <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
-                <input type="email" id="email"
-                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
-            </div>
-
-            <!-- Password -->
-            <div class="mb-4">
-                <label for="password" class="block text-gray-700 font-medium mb-2">Password</label>
-                <input type="password" id="password"
-                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
-            </div>
-
-            <!-- Submit Button -->
-            <button type="submit"
-                class="w-full bg-purple-600 text-white py-2 rounded-lg font-bold hover:bg-purple-700 transition"
-                id="signup">
-                Sign Up
-            </button>
-        </form>
-    </div>
-</div>
-
-    <!-- Header Section -->
-    <header class="bg-purple-600 text-white py-6">
-        <div class="container mx-auto text-center">
-            <h1 class="text-3xl md:text-4xl font-bold">Complete Your Ticket Purchase</h1>
-            <p class="text-lg mt-2">Secure your spot for the event!</p>
-        </div>
-    </header>
-
-    <!-- Ticket Purchase Form -->
-    <main class="container mx-auto py-10 px-6">
-        <div class="bg-white shadow-md rounded-lg p-8 max-w-2xl mx-auto">
-            <h2 class="text-2xl font-bold mb-6">Ticket Details</h2>
-
-            <!-- Form -->
-            <form action="#" method="POST">
-                <!-- Full Name -->
+    <!-- Signup  -->
+    <div id="signupModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+        <div class="bg-white rounded-lg shadow-lg p-8 w-11/12 max-w-md">
+            <h2 class="text-2xl font-bold mb-4 text-center text-purple-600">Create Your Account</h2>
+            <form>
+                <!-- Name -->
                 <div class="mb-4">
                     <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
-                    <input type="text" id="name" name="name" required
-                        class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
+                    <input type="text" id="name"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
                 </div>
 
                 <!-- Email -->
                 <div class="mb-4">
-                    <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
-                    <input type="email" id="email" name="email" required
-                        class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
+                    <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                    <input type="email" id="email"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
                 </div>
 
-                <!-- Ticket Options -->
+                <!-- Password -->
                 <div class="mb-4">
-                    <label for="ticket-type" class="block text-gray-700 font-medium mb-2">Select Ticket Type</label>
-                    <select id="ticket-type" name="ticket-type" required
-                        class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
-                        <option value="general">General Admission - $5</option>
-                        <option value="vip">VIP Pass - $15</option>
-                    </select>
-                </div>
-
-                <!-- Quantity -->
-                <div class="mb-4">
-                    <label for="quantity" class="block text-gray-700 font-medium mb-2">Quantity</label>
-                    <input type="number" id="quantity" name="quantity" min="1" max="10" required
-                        class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
-                </div>
-
-                <!-- Payment Section -->
-                <div class="mb-6">
-                    <p class="text-gray-600 mb-2">Total: <span id="total" class="font-bold text-purple-600">$0.00</span>
-                    </p>
-                    <small class="text-gray-500">Payment details will be provided on the next page.</small>
+                    <label for="password" class="block text-gray-700 font-medium mb-2">Password</label>
+                    <input type="password" id="password"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
                 </div>
 
                 <!-- Submit Button -->
                 <button type="submit"
-                    class="w-full bg-purple-600 text-white px-4 py-2 rounded-lg text-lg shadow-md hover:bg-purple-700 transition animate-bounce-once"
-                    id="payment">
-                    Proceed to Payment
+                    class="w-full bg-purple-600 text-white py-2 rounded-lg font-bold hover:bg-purple-700 transition"
+                    id="signup">
+                    Sign Up
                 </button>
             </form>
         </div>
-    </main>
+    </div>
+    <!-- Header Section -->
+    <header class="bg-purple-600 text-white py-20 relative">
+        <div class="container mx-auto text-center">
+            <h1 class="text-5xl font-extrabold">
+                Sell Tickets for Your Events <span class="text-yellow-400">FREE</span> for Now!
+            </h1>
+            <p class="mt-4 text-lg text-gray-100">Start managing and selling tickets effortlessly today.</p>
+            <a href="#features"
+                class="mt-6 inline-block px-8 py-3 bg-yellow-400 text-white font-bold rounded-lg shadow-lg hover:bg-yellow-300 transition animate-bounce">
+                Get Started Now
+            </a>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="bg-gray-100 py-20">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold text-gray-800">Why Choose Us?</h2>
+            <p class="text-gray-600 mt-4 text-lg">Here's why thousands of event organizers trust us.</p>
+            <div class="grid gap-12 mt-12 md:grid-cols-3">
+                <div class="bg-white shadow-lg rounded-lg p-8">
+                    <h3 class="text-2xl font-bold text-purple-600">Free Ticketing</h3>
+                    <p class="mt-4 text-gray-600">List and sell your tickets at no cost. Keep 100% of your earnings for
+                        paid tickets.</p>
+                </div>
+                <div class="bg-white shadow-lg rounded-lg p-8">
+                    <h3 class="text-2xl font-bold text-purple-600">Customizable Options</h3>
+                    <p class="mt-4 text-gray-600">Sell free or paid tickets, and manage your inventory effortlessly.</p>
+                </div>
+                <div class="bg-white shadow-lg rounded-lg p-8">
+                    <h3 class="text-2xl font-bold text-purple-600">Easy Management</h3>
+                    <p class="mt-4 text-gray-600">Track sales, attendees, and ticket availability with our simple tools.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container mx-auto text-center">
+        <a href="#sell-form"
+            class="mt-6 inline-block px-8 py-3 bg-yellow-400 text-purple-700 font-bold rounded-lg shadow-lg hover:bg-yellow-300 transition animate-bounce">
+            Get Started Now
+        </a>
+    </div>
+    <!-- How It Works Section -->
+    <section class="bg-white py-20">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800">How It Works</h2>
+                <p class="text-gray-600 mt-4 text-lg">A simple process to sell your tickets efficiently.</p>
+            </div>
+            <div class="grid gap-12 md:grid-cols-3">
+                <div class="text-center">
+                    <div
+                        class="w-16 h-16 mx-auto bg-yellow-400 rounded-full flex items-center justify-center text-purple-600 font-bold text-xl">
+                        1
+                    </div>
+                    <h3 class="mt-6 text-2xl font-bold text-purple-600">Sign Up</h3>
+                    <p class="mt-4 text-gray-600">Create an account to access your dashboard.</p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="w-16 h-16 mx-auto bg-yellow-400 rounded-full flex items-center justify-center text-purple-600 font-bold text-xl">
+                        2
+                    </div>
+                    <h3 class="mt-6 text-2xl font-bold text-purple-600">List Your Event & Price</h3>
+                    <p class="mt-4 text-gray-600">Provide event details and ticket pricing options.</p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="w-16 h-16 mx-auto bg-yellow-400 rounded-full flex items-center justify-center text-purple-600 font-bold text-xl">
+                        3
+                    </div>
+                    <h3 class="mt-6 text-2xl font-bold text-purple-600">Sell Tickets</h3>
+                    <p class="mt-4 text-gray-600">Share your event link and start selling tickets immediately.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-purple-600 text-white py-20">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold">Start Selling Tickets Now</h2>
+            <p class="mt-4 text-lg">Get started today and take control of your events.</p>
+            <a href="#sell-form"
+                class="mt-6 inline-block px-8 py-3 bg-yellow-400 text-purple-700 font-bold rounded-lg shadow-lg hover:bg-yellow-300 transition animate-bounce">
+                List Your Event
+            </a>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="bg-gradient-to-r from-purple-100 via-purple-200 to-purple-300 text-black-800">
@@ -334,10 +346,6 @@
     integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous">
     </script>
 <script>
-    let payment = document.getElementById("payment")
-    payment.addEventListener('click', () => {
-        window.location.href = "../payment/payment.html"
-    })
     $(document).ready(function () {
         $(".nav-toggler").each(function (_, navToggler) {
             var target = $(navToggler).data("target");
@@ -360,6 +368,7 @@
 
     const openSignup = document.getElementById("Signup");
     const signupModal = document.getElementById("signupModal");
+    const homepage = document.getElementById("homepage1");
 
     // Open Modal
     openSignup.addEventListener("click", () => {
@@ -368,6 +377,9 @@
 
         // homepage.classList.add("filter", "blur-sm");
     });
+
+
+
 </script>
 
 </html>
