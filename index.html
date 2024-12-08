@@ -23,10 +23,6 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
             font-family: "Raleway", sans-serif;
         }
 
-        * {
-            /* outline: 1px solid; */
-        }
-
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -119,15 +115,11 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
             <div
                 class="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto">
                 <a href="#"
-                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center hover:text-black">
-                    <span>Discover events</span>
-                </a>
-                <a href="#"
                     class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center hover:text-black" id="selltickets">
                     <span>Sell tickets</span>
                 </a>
                 <a href="#"
-                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center hover:text-black">
+                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center hover:text-black " id="findmytickets">
                     <span>Find my tickets</span>
                 </a>
                 <div style="display: flex; gap: 0.5rem;" class="reg">
@@ -151,28 +143,24 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
         <div class="bg-white rounded-lg shadow-lg p-8 w-11/12 max-w-md">
             <h2 class="text-2xl font-bold mb-4 text-center text-purple-600">Create Your Account</h2>
             <form>
-                <!-- Name -->
                 <div class="mb-4">
                     <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
                     <input type="text" id="name"
                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
                 </div>
 
-                <!-- Email -->
                 <div class="mb-4">
                     <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
                     <input type="email" id="email"
                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
                 </div>
 
-                <!-- Password -->
                 <div class="mb-4">
                     <label for="password" class="block text-gray-700 font-medium mb-2">Password</label>
                     <input type="password" id="password"
                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
                 </div>
 
-                <!-- Submit Button -->
                 <button type="submit"
                     class="w-full bg-purple-600 text-white py-2 rounded-lg font-bold hover:bg-purple-700 transition"
                     id="signup">
@@ -474,7 +462,6 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
     </div>
 
 
-
     <!-- Footer -->
     <footer class="bg-gradient-to-r from-purple-100 via-purple-200 to-purple-300 text-black-800">
         <div class="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
@@ -507,7 +494,6 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
                             </svg>
                         </a>
 
-                        <!-- Facebook -->
                         <a class="hover:opacity-75" href="#" target="_blank" rel="noreferrer">
                             <span class="sr-only">Facebook</span>
                             <svg class="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 24 24"
@@ -518,7 +504,6 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
                             </svg>
                         </a>
 
-                        <!-- Instagram -->
                         <a class="hover:opacity-75" href="#" target="_blank" rel="noreferrer">
                             <span class="sr-only">Instagram</span>
                             <svg class="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 24 24"
@@ -529,7 +514,6 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
                             </svg>
                         </a>
 
-                        <!-- Twitter -->
                         <a class="hover:opacity-75" href="#" target="_blank" rel="noreferrer">
                             <span class="sr-only">Twitter</span>
                             <svg class="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 24 24"
@@ -584,7 +568,6 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
             </p>
         </div>
     </footer>
-    <a href="./sellticket/sellticket.html"></a>
 </body>
 
 
@@ -610,6 +593,11 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
     selltickets.addEventListener('click', () => {
         window.location.href = "./sellticket/sellticket.html"
     })
+    let findmytickets = document.getElementById("findmytickets")
+    findmytickets.addEventListener('click', () => {
+        window.location.href = "./findmytickets/findticket.html"
+    })
+    
     
     let signup = document.getElementById("signup")
     signup.addEventListener('click', () => {
