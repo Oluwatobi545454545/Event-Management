@@ -105,7 +105,7 @@
         <!-- Main Section -->
         <section id="content" class="md:w-3/4 bg-white shadow-lg rounded-lg p-6">
             <!-- Create Event Content -->
-            <div id="create-event-content" class="content-section">
+            <div id="create-event-content" class="content-section hidden">
                 <h2 class="text-2xl font-semibold text-gray-800 text-center mb-6">Create Your Event</h2>
                 <form class="space-y-6">
                     <!-- Event Title -->
@@ -155,7 +155,7 @@
 
                     <!-- Submit Button -->
                     <button type="submit"
-                        class="w-full bg-purple-600 text-white py-3 rounded-lg font-medium text-lg hover:bg-purple-700 transition" id="createventbtn">
+                        class="w-full bg-purple-600 text-white py-3 rounded-lg font-medium text-lg hover:bg-purple-700 transition">
                         Create Event
                     </button>
                 </form>
@@ -175,12 +175,13 @@
             </div>
 
             <!-- Events Content -->
-            <div id="events-content" class="content-section hidden">
+            <div id="events-content" class="content-section">
                 <h2 class="text-2xl font-semibold text-gray-800 text-center">My Events</h2>
                 <p class="text-gray-500 text-center mt-4">No events to display yet.</p>
             </div>
         </section>
     </div>
+
     <!-- Scripts -->
     <script>
         const menuToggle = document.getElementById("menu-toggle");
@@ -189,10 +190,6 @@
         const menuItems = document.querySelectorAll(".menu-item");
         const contentSections = document.querySelectorAll(".content-section");
 
-        const createventbtn = document.getElementById("createventbtn")
-        createventbtn.addEventListener('click', ()=>{
-            window.location.href = "../sucess/success.html"
-        })
         // Toggle menu visibility
         menuToggle.addEventListener("click", () => {
             menu.classList.toggle("active");

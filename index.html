@@ -55,7 +55,8 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
                 margin: 5px;
 
             }
-            #heroimage{
+
+            #heroimage {
                 display: none;
             }
         }
@@ -114,17 +115,19 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
             <div
                 class="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto">
                 <a href="#"
-                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center hover:text-black" id="selltickets">
+                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center hover:text-black"
+                    id="selltickets">
                     <span>Sell tickets</span>
                 </a>
                 <a href="#"
-                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center hover:text-black " id="findmytickets">
+                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center hover:text-black "
+                    id="findmytickets">
                     <span>Find my tickets</span>
                 </a>
                 <div style="display: flex; gap: 0.5rem;" class="reg">
                     <a href="#"
                         class="lg:inline-flex lg:w-auto w-full px-3 py-2 bg-purple-600 text-white rounded text-purple-900 items-center justify-center hover:bg-purple-500 hover:text-white"
-                        id="login">
+                        id="Login">
                         <span>Login</span>
                     </a>
                     <a href="#"
@@ -168,27 +171,53 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
             </form>
         </div>
     </div>
+
+    <!-- login -->
+    <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+        <div class="bg-white rounded-lg shadow-lg p-8 w-11/12 max-w-md">
+            <h2 class="text-2xl font-bold mb-4 text-center text-purple-600">Login</h2>
+            <form>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                    <input type="email" id="email"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                </div>
+                
+                <div class="mb-4">
+                    <label for="password" class="block text-gray-700 font-medium mb-2">Password</label>
+                    <input type="password" id="password"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-purple-600 text-white py-2 rounded-lg font-bold hover:bg-purple-700 transition"
+                    id="login">
+                    Login
+                </button>
+            </form>
+        </div>
+    </div>
+
     <header class="relative">
-        <img 
-          src="https://images.unsplash.com/photo-1572431447238-425af66a273b" 
-          alt="Event Hero" 
-          class="w-full h-[70vh] object-cover">
-        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white text-center p-2">
+        <img src="https://images.unsplash.com/photo-1572431447238-425af66a273b" alt="Event Hero"
+            class="w-full h-[70vh] object-cover">
+        <div
+            class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white text-center p-2">
             <p class="text-lg md:text-xl ">
                 Book New Year Eve
             </p>
             <h1 class="text-4xl md:text-6xl font-bold mb-4">Effortlessly Manage Your Events</h1>
-          <p class="text-lg md:text-xl mb-6">
-            Plan, organize, and execute events seamlessly with EventFlow.
-        </p>
-        
-          <button"
-          class="inline-block bg-white text-blue-600 font-medium py-4 px-16 rounded-lg shadow-md hover:bg-gray-100 transition animate-pulse-once">
-          Get Started
-          </button>
+            <p class="text-lg md:text-xl mb-6">
+                Plan, organize, and execute events seamlessly with EventFlow.
+            </p>
+
+            <button"
+                class="inline-block bg-white text-blue-600 font-medium py-4 px-16 rounded-lg shadow-md hover:bg-gray-100 transition animate-pulse-once">
+                Get Started
+                </button>
         </div>
-      </header>
-    
+    </header>
+
     <!-- events in a state -->
     <div class=" min-h-screen py-32 px-10 " id="allevents">
         <h1
@@ -596,27 +625,34 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
     findmytickets.addEventListener('click', () => {
         window.location.href = "./findmytickets/findticket.html"
     })
-    
-    
+
+
     let signup = document.getElementById("signup")
     signup.addEventListener('click', () => {
-        window.location.href = "./payment/payment.html"
         alert("You are signed up")
+
+    })
+    let login = document.getElementById("login")
+    login.addEventListener('click', () => {
+        alert("You are logged in")
 
     })
 
     const openSignup = document.getElementById("Signup");
+    const openLogin = document.getElementById("Login");
     const signupModal = document.getElementById("signupModal");
-    const homepage = document.getElementById("homepage1");
+    const loginModal = document.getElementById("loginModal")
 
     // Open Modal
     openSignup.addEventListener("click", () => {
         signupModal.classList.remove("hidden");
-        console.log('hello');
+        // console.log('hello');
 
         // homepage.classList.add("filter", "blur-sm");
     });
-
+    openLogin.addEventListener("click", ()=>{
+        loginModal.classList.remove("hidden")
+    })
 
 
 </script>

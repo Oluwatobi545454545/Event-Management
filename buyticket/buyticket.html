@@ -7,7 +7,7 @@
     <title>Buy Tickets</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-     *{
+        * {
             font-family: "Raleway", sans-serif;
         }
 
@@ -26,134 +26,135 @@
                 transform: translateY(-10px);
             }
         }
+
         ::-webkit-scrollbar {
-        width: 6px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background-color: #8A2BE2;
-    }
-
-    ::-webkit-scrollbar-track {
-        background-color: #dadada;
-    }
-
-    @media (min-width: 1024px) {
-        .top-navbar {
-            display: inline-flex !important;
-        }
-    }
-
-    @media (max-width: 768px) {
-        #search {
-            width: 100%;
+            width: 6px;
         }
 
-        #allevents {
-            padding: 5px;
-            margin-top: 3rem;
-            margin-bottom: 3rem;
+        ::-webkit-scrollbar-thumb {
+            background-color: #8A2BE2;
         }
 
-        #hero {
-            margin: 5px;
-
+        ::-webkit-scrollbar-track {
+            background-color: #dadada;
         }
 
-        #heroimage {
-            display: none;
+        @media (min-width: 1024px) {
+            .top-navbar {
+                display: inline-flex !important;
+            }
         }
-    }
 
-    @media (max-width: 1110px) {
-        .reg {
-            flex-direction: column;
-            width: 100%;
+        @media (max-width: 768px) {
+            #search {
+                width: 100%;
+            }
+
+            #allevents {
+                padding: 5px;
+                margin-top: 3rem;
+                margin-bottom: 3rem;
+            }
+
+            #hero {
+                margin: 5px;
+
+            }
+
+            #heroimage {
+                display: none;
+            }
         }
-    }
+
+        @media (max-width: 1110px) {
+            .reg {
+                flex-direction: column;
+                width: 100%;
+            }
+        }
     </style>
 </head>
 
 <body class="bg-gray-50 ">
     <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css"
-    integrity="sha256-x8PYmLKD83R9T/sYmJn1j3is/chhJdySyhet/JuHnfY=" crossorigin="anonymous" />
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-<nav
-    class="sticky top-0 z-50 bg-white/50 flex items-center backdrop-blur-md p-3 flex-wrap transition-all duration-300">
+        href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css"
+        integrity="sha256-x8PYmLKD83R9T/sYmJn1j3is/chhJdySyhet/JuHnfY=" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <nav
+        class="sticky top-0 z-50 bg-white/50 flex items-center backdrop-blur-md p-3 flex-wrap transition-all duration-300">
 
-    <a href="#" class="p-2 mr-4 inline-flex items-center">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-            class="fill-current text-purple-800 h-8 w-8 mr-2">
-            <path
-                d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z" />
-        </svg>
-        <span class="text-xl text-purple-700 font-bold uppercase tracking-wide">EVENTFLOW</span>
-    </a>
-    <button
-        class="text-purple-700 inline-flex p-3 hover:bg-purple-700 rounded lg:hidden ml-auto hover:text-white outline-none nav-toggler"
-        data-target="#navigation">
-        <i class="material-icons">menu</i>
-    </button>
+        <a href="#" class="p-2 mr-4 inline-flex items-center">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                class="fill-current text-purple-800 h-8 w-8 mr-2">
+                <path
+                    d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z" />
+            </svg>
+            <span class="text-xl text-purple-700 font-bold uppercase tracking-wide">EVENTFLOW</span>
+        </a>
+        <button
+            class="text-purple-700 inline-flex p-3 hover:bg-purple-700 rounded lg:hidden ml-auto hover:text-white outline-none nav-toggler"
+            data-target="#navigation">
+            <i class="material-icons">menu</i>
+        </button>
 
-    <div class="hidden top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto" id="navigation">
-        <div
-            class="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto">
-            <a href="#"
-                class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center hover:text-black">
-                <span>Find my tickets</span>
-            </a>
-            <div style="display: flex; gap: 0.5rem;" class="reg">
+        <div class="hidden top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto" id="navigation">
+            <div
+                class="lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto">
                 <a href="#"
-                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 bg-purple-600 text-white rounded text-purple-900 items-center justify-center hover:bg-purple-500 hover:text-white"
-                    id="login">
-                    <span>Login</span>
+                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center hover:text-black">
+                    <span>Find my tickets</span>
                 </a>
-                <a href="#"
-                    class="lg:inline-flex lg:w-auto w-full px-3 py-2 bg-purple-600 text-white rounded text-purple-900 items-center justify-center hover:bg-purple-500 hover:text-white"
-                    id="Signup">
-                    <span>Signup</span>
-                </a>
+                <div style="display: flex; gap: 0.5rem;" class="reg">
+                    <a href="#"
+                        class="lg:inline-flex lg:w-auto w-full px-3 py-2 bg-purple-600 text-white rounded text-purple-900 items-center justify-center hover:bg-purple-500 hover:text-white"
+                        id="login">
+                        <span>Login</span>
+                    </a>
+                    <a href="#"
+                        class="lg:inline-flex lg:w-auto w-full px-3 py-2 bg-purple-600 text-white rounded text-purple-900 items-center justify-center hover:bg-purple-500 hover:text-white"
+                        id="Signup">
+                        <span>Signup</span>
+                    </a>
+                </div>
             </div>
         </div>
+    </nav>
+
+    <!-- Signup  -->
+    <div id="signupModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+        <div class="bg-white rounded-lg shadow-lg p-8 w-11/12 max-w-md">
+            <h2 class="text-2xl font-bold mb-4 text-center text-purple-600">Create Your Account</h2>
+            <form>
+                <!-- Name -->
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+                    <input type="text" id="name"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                </div>
+
+                <!-- Email -->
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                    <input type="email" id="email"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                </div>
+
+                <!-- Password -->
+                <div class="mb-4">
+                    <label for="password" class="block text-gray-700 font-medium mb-2">Password</label>
+                    <input type="password" id="password"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit"
+                    class="w-full bg-purple-600 text-white py-2 rounded-lg font-bold hover:bg-purple-700 transition"
+                    id="signup">
+                    Sign Up
+                </button>
+            </form>
+        </div>
     </div>
-</nav>
-
-<!-- Signup  -->
-<div id="signupModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
-    <div class="bg-white rounded-lg shadow-lg p-8 w-11/12 max-w-md">
-        <h2 class="text-2xl font-bold mb-4 text-center text-purple-600">Create Your Account</h2>
-        <form>
-            <!-- Name -->
-            <div class="mb-4">
-                <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
-                <input type="text" id="name"
-                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
-            </div>
-
-            <!-- Email -->
-            <div class="mb-4">
-                <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
-                <input type="email" id="email"
-                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
-            </div>
-
-            <!-- Password -->
-            <div class="mb-4">
-                <label for="password" class="block text-gray-700 font-medium mb-2">Password</label>
-                <input type="password" id="password"
-                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600">
-            </div>
-
-            <!-- Submit Button -->
-            <button type="submit"
-                class="w-full bg-purple-600 text-white py-2 rounded-lg font-bold hover:bg-purple-700 transition"
-                id="signup">
-                Sign Up
-            </button>
-        </form>
-    </div>
-</div>
 
     <!-- Header Section -->
     <header class="bg-purple-600 text-white py-6">
@@ -207,55 +208,52 @@
                     </p>
                     <small class="text-gray-500">Payment details will be provided on the next page.</small>
                 </div>
-                
+
                 <!-- Vertical Payment Options Section -->
-<section class="mt-8 mb-4 max-w-2xl mx-auto p-6 bg-white border border-gray-200 rounded-lg shadow-md">
-    <h2 class="text-xl font-semibold text-gray-800 mb-6 text-center">Choose Your Payment Method</h2>
-    <div id="payment-options" class="space-y-4">
-        <!-- PayPal -->
-        <div class="payment-option flex items-center justify-between p-4 border border-gray-300 rounded-lg hover:shadow-md transition cursor-pointer">
-            <div class="flex items-center">
-                <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" alt="PayPal" class="w-10 h-10 mr-4">
-                <span class="text-gray-700 font-medium">PayPal</span>
-            </div>
-        </div>
-        <!-- Credit/Debit Card -->
-        <div class="payment-option flex items-center justify-between p-4 border border-gray-300 rounded-lg hover:shadow-md transition cursor-pointer">
-            <div class="flex items-center">
-                <img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Card Payment" class="w-10 h-10 mr-4">
-                <span class="text-gray-700 font-medium">Credit/Debit Card</span>
-            </div>
-        </div>
-        <!-- Stripe -->
-        <div class="payment-option flex items-center justify-between p-4 border border-gray-300 rounded-lg hover:shadow-md transition cursor-pointer">
-            <div class="flex items-center">
-                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968887.png" alt="Stripe" class="w-10 h-10 mr-4">
-                <span class="text-gray-700 font-medium">Stripe</span>
-            </div>
-        </div>
-        <!-- Google Pay -->
-        <div class="payment-option flex items-center justify-between p-4 border border-gray-300 rounded-lg hover:shadow-md transition cursor-pointer">
-            <div class="flex items-center">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Google_Pay_Logo.svg/512px-Google_Pay_Logo.svg.png" alt="Google Pay" class="w-10 h-10 mr-4">
-                <span class="text-gray-700 font-medium">Google Pay</span>
-            </div>
-        </div>
-    </div>
-</section>
+                <section class="mt-8 mb-4 max-w-2xl mx-auto p-6 bg-white border border-gray-200 rounded-lg shadow-md">
+                    <h2 class="text-xl font-semibold text-gray-800 mb-6 text-center">Choose Your Payment Method</h2>
+                    <div id="payment-options" class="space-y-4">
+                        <!-- PayPal -->
+                        <div
+                            class="payment-option flex items-center justify-between p-4 border border-gray-300 rounded-lg hover:shadow-md transition cursor-pointer">
+                            <div class="flex items-center">
+                                <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" alt="PayPal"
+                                    class="w-10 h-10 mr-4">
+                                <span class="text-gray-700 font-medium">PayPal</span>
+                            </div>
+                        </div>
+                        <!-- Credit/Debit Card -->
+                        <div
+                            class="payment-option flex items-center justify-between p-4 border border-gray-300 rounded-lg hover:shadow-md transition cursor-pointer">
+                            <div class="flex items-center">
+                                <img src="https://cdn-icons-png.flaticon.com/512/196/196578.png" alt="Card Payment"
+                                    class="w-10 h-10 mr-4">
+                                <span class="text-gray-700 font-medium">Credit/Debit Card(Nigeria only)</span>
+                            </div>
+                        </div>
+                        <!-- Stripe -->
+                        <div
+                            class="payment-option flex items-center justify-between p-4 border border-gray-300 rounded-lg hover:shadow-md transition cursor-pointer">
+                            <div class="flex items-center">
+                                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968887.png" alt="Stripe"
+                                    class="w-10 h-10 mr-4">
+                                <span class="text-gray-700 font-medium">Stripe</span>
+                            </div>
+                        </div>
+                        <!-- Google Pay -->
+                        <div
+                            class="payment-option flex items-center justify-between p-4 border border-gray-300 rounded-lg hover:shadow-md transition cursor-pointer">
+                            <div class="flex items-center">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Google_Pay_Logo.svg/512px-Google_Pay_Logo.svg.png"
+                                    alt="Google Pay" class="w-10 h-10 mr-4">
+                                <span class="text-gray-700 font-medium">Google Pay</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-<script>
-    document.querySelectorAll('.payment-option').forEach(option => {
-        option.addEventListener('click', function () {
-            // Remove 
-            document.querySelectorAll('.payment-option').forEach(opt => opt.classList.remove('bg-purple-100', 'border-purple-500'));
-            
-            // Add 
-            this.classList.add('bg-purple-100', 'border-purple-500');
-        });
-    });
-</script>
 
-                
+
                 <!-- Submit Button -->
                 <button type="submit"
                     class="w-full bg-purple-600 text-white px-4 py-2 rounded-lg text-lg shadow-md hover:bg-purple-700 transition animate-bounce-once"
@@ -272,10 +270,24 @@
     </footer>
 
 </body>
+<script>
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
     integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous">
     </script>
 <script>
+    document.querySelectorAll('.payment-option').forEach(option => {
+        option.addEventListener('click', function () {
+            // Remove 
+            document.querySelectorAll('.payment-option').forEach(opt => opt.classList.remove('bg-purple-100', 'border-purple-500'));
+
+            // Add 
+            this.classList.add('bg-purple-100', 'border-purple-500');
+        });
+    });
+    //for click color^^^^^^^^^^
+
+
     let payment = document.getElementById("payment")
     payment.addEventListener('click', () => {
         window.location.href = "../payment/payment.html"
