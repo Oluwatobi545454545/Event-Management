@@ -198,13 +198,13 @@
                 <!-- Quantity -->
                 <div class="mb-4">
                     <label for="quantity" class="block text-gray-700 font-medium mb-2">Quantity</label>
-                    <input type="number" id="quantity" name="quantity" min="1" max="10" required
-                        class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
+                    <input type="number" id="quantity" name="quantity" required
+                        class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600" >
                 </div>
 
                 <!-- Payment Section -->
                 <div class="mb-6">
-                    <p class="text-gray-600 mb-2">Total: <span id="total" class="font-bold text-purple-600">$0.00</span>
+                    <p class="text-gray-600 mb-2">Total: <span id="total" class="font-bold text-purple-600" >$0.00</span>
                     </p>
                     <small class="text-gray-500">Payment details will be provided on the next page.</small>
                 </div>
@@ -268,7 +268,6 @@
     <footer class="bg-gray-800 text-gray-200 py-6 text-center">
         <p>© 2024 EventFlow. All Rights Reserved.</p>
     </footer>
-
 </body>
 <script>
 </script>
@@ -303,7 +302,13 @@
         });
     });
 
-
+    let quantity = document.getElementById("quantity")
+    let total = document.getElementById("total")
+    let amount = 0;
+    quantity.addEventListener('click', ()=>{
+        let changer = amount += 5
+        total.textContent = `$ ${changer}`
+    })
 
     let signup = document.getElementById("signup")
     signup.addEventListener('click', () => {
