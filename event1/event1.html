@@ -100,6 +100,44 @@
                     class="lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-purple-900 items-center justify-center ">
                     <span>Find My Tickets</span>
                 </a>
+
+                <div class="relative" id="profile-section">
+                    <!-- Profile Icon (Trigger) -->
+                    <input type="checkbox" id="profile-menu-toggle" class="hidden peer">
+                    <label
+                        for="profile-menu-toggle"
+                        class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-white hover:bg-gray-300 focus:outline-none cursor-pointer"
+                    >
+                        <img
+                            src="https://via.placeholder.com/150" 
+                            alt="User Avatar"
+                            class="w-10 h-10 rounded-full object-cover"
+                        />
+                    </label>
+                
+                    <!-- Dropdown Menu -->
+                    <div
+                        class="absolute right-0 mt-2 text-center w-48 bg-white rounded-lg shadow-lg overflow-hidden opacity-0 pointer-events-none transition-all duration-300 peer-checked:opacity-100 peer-checked:pointer-events-auto"
+                    >
+                        <div class="p-4">
+                            <img
+                                src="https://via.placeholder.com/150"
+                                alt="User Avatar"
+                                class="w-16 h-16 mx-auto rounded-full object-cover mb-2"
+                            />
+                            <p class="text-gray-700 font-semibold" id="profile-username">Username</p>
+                            <p class="text-sm text-gray-500" id="profile-email">user@example.com</p>
+                        </div>
+                        <div class="border-t">
+                            <button
+                                class="w-full text-center px-4 py-2 text-red-500 hover:bg-gray-200"
+                                id="logout-button"
+                            >
+                                Logout
+                            </button>
+                        </div>
+                    </div>
+                </div>
                 <div style="display: flex; gap: 0.5rem;" class="reg">
                     <a href="#"
                         class="lg:inline-flex lg:w-auto w-full px-3 py-2 bg-purple-600 text-white rounded text-purple-900 items-center justify-center hover:bg-purple-500 hover:text-white"
@@ -175,14 +213,16 @@
             </form>
         </div>
     </div>
+    <section id="displayhero">
 
+    </section>
     <!-- Hero Section -->
     <header class="relative">
         <img src="https://images.unsplash.com/photo-1572431447238-425af66a273b" alt="Event Hero"
             class="w-full h-[70vh] object-cover">
         <div
             class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4">Ibadan Palm Wine Hangout</h1>
+            <h1 class="text-4xl md:text-6xl font-bold mb-4" id="maintitle"></h1>
             <button
                 class="bg-purple-600 text-white px-6 py-3 rounded-lg text-lg shadow-md hover:bg-purple-700 transition animate-pulse-once"
                 id="buyticket">
@@ -227,23 +267,13 @@
                     <h2 class="text-xl font-bold text-purple-700 mb-2">Location</h2>
                     <div class="flex items-center gap-2">
                         <span class="material-icons text-purple-600">location_on</span>
-                        <p class="text-gray-700">
+                        <p class="text-gray-700" id="location">
                             MIV Word House<br>
                             Samonda Ibadan, YO 200213
                         </p>
                     </div>
                 </div>
-                <div>
-                    <h2 class="text-xl font-bold text-purple-700 mb-2">Event Duration</h2>
-                    <div class="flex items-center gap-2">
-                        <span class="material-icons text-purple-600">access_time</span>
-                        <p class="text-gray-700">
-                            The event lasts for 3 hours. Join us for a fun and engaging experience!
-                        </p>
-                    </div>
-                </div>
             </div>
-
             <!-- Price & Call to Action -->
             <div class="md:sticky top-10 w-130 flex flex-col justify-center items-center">
                 <div class="bg-white shadow-md rounded-lg flex flex-col justify-center w-80 px-5 py-8">
@@ -273,7 +303,7 @@
     <section class="py-10 px-10 bg-gray-100">
         <div class="container mx-auto ">
             <h2 class="text-2xl md:text-3xl font-bold mb-4">About the Event</h2>
-            <p class="text-gray-700 max-w mb-6">
+            <p class="text-gray-700 max-w mb-6" id="description">
                 Experience the vibrant culture of Ibadan with delicious palm wine, music, and unforgettable moments.
                 Join us for a day of fun, entertainment, and connections at the Work and Play Race Arena.
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, quisquam! Dolorem quis sequi vel et
@@ -430,116 +460,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
     integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous">
     </script>
-<script>
-    $(document).ready(function () {
-        $(".nav-toggler").each(function (_, navToggler) {
-            var target = $(navToggler).data("target");
-            $(navToggler).on("click", function () {
-                $(target).animate({
-                    height: "toggle"
-                });
-            });
-        });
-    });
-
-    //for changing anount
-    let minusno = document.getElementById('minusno')
-    let addno = document.getElementById('addno')
-    let displayno = document.getElementById('displayno')
-    let amount = document.getElementById('amount')
-    let amount1 = 0
-    let count = 1;
-
-    minusno.addEventListener('click', () => {
-        let remover = amount1 -= 5
-        amount.textContent = `$ ${remover}.00`
-        displayno.innerHTML = count--
-        if (count < 1) {
-            minusno.disabled = true;
-        } else {
-            minusno.disabled = false;
-
-        }
-    })
-    addno.addEventListener('click', () => {
-        let adder = amount1 += 5
-        amount.textContent = `$ ${adder}.00`
-        displayno.innerHTML = count++
-
-
-    })
-    //////////////////////////////////////////
-
-    //for countdown
-    let datearr = [];
-
-    let enddate = new Date('12/17/2024 10:1 AM');
-
-    //just to convert to millisec..
-    let second = 1000;
-    let minute = second * 60;
-    let hour = minute * 60;
-    let day = hour * 24;
-    let timer;
-
-    function showRemaining() {
-        let currentdate = new Date();
-        let distance = enddate - currentdate;
-        if (distance < 0) {
-
-            clearInterval(timer);
-            document.getElementById('countdown').innerHTML = 'THIS EVENT HAS EXPIRED!';
-
-            return;
-        }
-        let days = Math.floor(distance / day);
-        let hours = Math.floor((distance % day) / hour);
-        let minutes = Math.floor((distance % hour) / minute);
-        let seconds = Math.floor((distance % minute) / second);
-
-        document.getElementById('displaydays').innerHTML = days;
-        document.getElementById('displayhours').innerHTML = hours;
-        document.getElementById('displayminutes').innerHTML = minutes;
-        document.getElementById('displayseconds').innerHTML = seconds ;
-    }
-
-    setInterval(showRemaining, 1000);
-    /////////////////////////////////////////////////////
-
-
-
-
-    let homepage1 = document.getElementById("homepage1")
-    homepage1.addEventListener('click', () => {
-        location.reload()
-    })
-    let sell = document.getElementById("sell")
-    sell.addEventListener('click', () => {
-        window.location.href = "../sellticket/sellticket.html"
-    })
-    let discoverevents = document.getElementById("discoverevents")
-    discoverevents.addEventListener('click', () => {
-        window.location.href = "../index.html"
-    })
-    let buyticket = document.getElementById("buyticket")
-    buyticket.addEventListener('click', () => {
-        window.location.href = "../buyticket/buyticket.html"
-    })
-    const openSignup = document.getElementById("Signup");
-    const openLogin = document.getElementById("Login")
-    const signupModal = document.getElementById("signupModal");
-    const loginModal = document.getElementById("loginModal")
-
-    // Open Modal
-    openSignup.addEventListener("click", () => {
-        signupModal.classList.remove("hidden");
-        // console.log('hello');
-
-        // homepage.classList.add("filter", "blur-sm");
-    });
-    openLogin.addEventListener('click', () => {
-        loginModal.classList.remove("hidden")
-    })
+<script type="module" src="./event1.js">
+   
 </script>
 
 </html>

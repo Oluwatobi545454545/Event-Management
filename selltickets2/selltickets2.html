@@ -128,7 +128,7 @@
                     <div>
                         <label for="event-description" class="block text-sm font-medium text-gray-700">Event
                             Location</label>
-                        <textarea id="event-description" class="w-full mt-1 p-3 border border-gray-300 rounded-lg"
+                        <textarea id="event-location" class="w-full mt-1 p-3 border border-gray-300 rounded-lg"
                             placeholder="Add your event location..." required></textarea>
                     </div>
 
@@ -137,24 +137,28 @@
                             Description</label>
                         <textarea id="event-description" class="w-full mt-1 p-3 border border-gray-300 rounded-lg"
                             placeholder="Add more details about your event..." rows="5" required></textarea>
+                            <p class="block text-sm font-size text-gray-400">Maximum of 72 characters</p>
                     </div>
-                    <div></div>
+                    <div>
+                        <label for="event-title" class="block text-sm font-medium text-gray-700">Quantity</label>
+                        <input type="text" id="quantity" class="w-full mt-1 p-3 border border-gray-300 rounded-lg"
+                            placeholder="0.00 pcs" required>
+                    </div>
                     <div>
                         <!-- <label for="select" class="block text-sm font-medium text-gray-700">Ticket Price</label> -->
                         <select name="" id="select" class="w-full mt-1 p-3 border border-gray-300 rounded-lg">
                             <option value="free">Free</option>
                             <option value="paid">Paid</option>
                         </select>
+                        <p id="answer"></p>
+                        <p id="display2"></p>
                         <button type="button" id="addticketbtn" style="display: none; "
                             class="bg-green-500 text-white py-2 px-4 rounded-lg mt-4">
                             Add Ticket
-                        </button> 
-                        <p id="answer"></p>
-                        <p id="display2"></p>
-                        
+                        </button>  
                     </div>
-
                     <div>
+                        
                         <label for="event-image-1" class="block text-sm font-medium text-gray-700">Upload Image 1 (Max:
                             5MB)</label>
                         <input type="file" id="event-image-1" class="w-full mt-1 p-2 border border-gray-300 rounded-lg"
@@ -196,7 +200,7 @@
             </div>
         </section>
     </div>
-    <script src="./selltickets2.js">
+    <script type="module" src="./selltickets2.js">
 
     </script>
 </body>
