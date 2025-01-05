@@ -9,32 +9,7 @@ $(document).ready(function () {
   });
 });
 
-//for changing anount
-let minusno = document.getElementById('minusno')
-let addno = document.getElementById('addno')
-let displayno = document.getElementById('displayno')
-let amount = document.getElementById('amount')
-let amount1 = 0
-let count = 1;
 
-minusno.addEventListener('click', () => {
-  let remover = amount1 -= 5
-  amount.textContent = `$ ${remover}.00`
-  displayno.innerHTML = count--
-  if (count < 1) {
-    minusno.disabled = true;
-  } else {
-    minusno.disabled = false;
-
-  }
-})
-addno.addEventListener('click', () => {
-  let adder = amount1 += 5
-  amount.textContent = `$ ${adder}.00`
-  displayno.innerHTML = count++
-
-
-})
 
 /////////////////////////////////////////////////////
 
@@ -270,6 +245,46 @@ function displayUI(blog) {
     <h1>${blog.description}</h1>
     
   `;
+  //for changing anount
+  
+let minusno = document.getElementById('minusno');
+let addno = document.getElementById('addno');
+let displayno = document.getElementById('displayno');
+let amount = document.getElementById('amount');
+
+// Use the initial value from blog.ticketprice1
+let ticketPrice = parseFloat(blog.ticketprice1); 
+let count = 1; // Initial ticket count
+
+// Display initial values
+amount.textContent = `$ ${ticketPrice}`;
+displayno.textContent = count;
+minusno.disabled = true; // Disable minus button initially
+
+// Add button click
+addno.addEventListener('click', () => {
+    ticketPrice += parseFloat(blog.ticketprice1); // Add the initial ticket price
+    count++;
+    updateUI();
+});
+
+// Minus button click
+minusno.addEventListener('click', () => {
+    if (count > 1) {
+        ticketPrice -= parseFloat(blog.ticketprice1); // Subtract the initial ticket price
+        count--;
+        updateUI();
+    }
+});
+
+// Update display and button states
+function updateUI() {
+    amount.textContent = `$ ${ticketPrice}`; // Update ticket price
+    displayno.textContent = count; // Update ticket count
+    minusno.disabled = count <= 1; // Disable minus button if count is 1
+}
+
+
 }
 
 // Call the function to fetch and display event details
@@ -281,7 +296,7 @@ addticketseller();
 //for countdown
 let datearr = [];
 
-let enddate = new Date('12/31/2024 10:1 AM');
+let enddate = new Date('1/31/2025 10:1 AM');
 
 //just to convert to millisec..
 let second = 1000;

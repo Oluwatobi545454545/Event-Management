@@ -204,9 +204,18 @@ form.addEventListener('submit', async (e) => {
     console.log(document.getElementById('ticketprice2'));     
     console.log({ title, date, time, location, description, quantity, price, ticketcategory1, ticketprice1, ticketcategory2, ticketprice2 })
 
-    formarray.push([])
-    console.log(formarray);
-
+    if (price === 'paid') {
+        const ticketcategory1Element = document.getElementById('ticketcategory1');
+        ticketcategory1 = ticketcategory1Element ? ticketcategory1Element.value : '';
+    
+        const ticketprice1Element = document.getElementById('ticketprice1');
+        ticketprice1 = ticketprice1Element ? ticketprice1Element.value : '';
+    } else if (price === 'free') {
+        ticketcategory1 = 'Free Entry'; // Set default category for free tickets
+        ticketprice1 = '0'; // Price is 0 for free tickets
+    }
+    
+    
     // Create an object with event data
     const eventData = {
         title,
@@ -221,14 +230,18 @@ form.addEventListener('submit', async (e) => {
         ticketprice1,
         ticketprice2,
     };
-    window.location.href ="../sucess/success.html"
+    // window.location.href ="../sucess/success.html"
+    formarray.push(eventData)
+    console.log(formarray);
+  localStorage.setItem("newevent", JSON.stringify(formarray));
+
 
     try {
         // Add event to Firestore
+        console.log("Event Data:", eventData);
         await addDoc(colRef, eventData);
         alert("Event created successfully!");
     } catch (error) {
         console.error("Error adding document: ", error);
     }
 });
-

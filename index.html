@@ -23,7 +23,8 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
             font-family: "Raleway", sans-serif;
             padding: 0;
             margin: 0;
-            box-sizing: border-box;
+            /* box-sizing: border-box; */
+            outline: 1px solid;
         }
 
         ::-webkit-scrollbar {
@@ -179,7 +180,7 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
         </button>
         <div class="flex rounded-md border border-purple overflow-hidden max-w-md mx-auto w-80 " id="search">
             <input type="text" placeholder="Search Events and Location..."
-                class="w-full outline-none bg-white text-gray-600 text-sm px-4 py-3" />
+                class="w-full outline-none bg-white text-gray-600 text-sm px-4 py-3" id="searchinput" />
             <button type='button' class="flex items-center justify-center bg-[#8A2BE2] px-5">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192.904 192.904" width="16px" class="fill-white">
                     <path
@@ -201,32 +202,7 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
                     id="findmytickets">
                     <span>Find my tickets</span>
                 </a>
-                <!-- <div class="relative" id="profile-section">
-                    <input type="checkbox" id="profile-menu-toggle" class="hidden peer">
-                    <label
-                        for="profile-menu-toggle"
-                        class="w-10 h-10 rounded-full bg-purple-600 flex items-center justify-center text-white hover:bg-purple-400 focus:outline-none cursor-pointer"
-                    >
-                        <span class="text-xl font-semibold">U</span>
-                    </label>
-                
-                    <div
-                        class="absolute right-0 mt-2 text-center w-48 bg-white rounded-lg shadow-lg overflow-hidden opacity-0 pointer-events-none transition-all duration-300 peer-checked:opacity-100 peer-checked:pointer-events-auto"
-                    >
-                        <div class="p-4">
-                            <p class="text-gray-700" id="profile-username">Username</p>
-                            <p class="text-sm text-gray-500" id="profile-email">user@example.com</p>
-                        </div>
-                        <div class="border-t">
-                            <button
-                                class="w-full text-center px-4 py-2 text-red-500 hover:bg-gray-200"
-                                id="logout-button"
-                            >
-                                Logout
-                            </button>
-                        </div>
-                    </div>
-                </div> -->
+        
                 <div class="relative" id="profile-section">
                     <!-- Profile Icon (Trigger) -->
                     <input type="checkbox" id="profile-menu-toggle" class="hidden peer">
@@ -306,7 +282,7 @@ Neutral Base: White (#FFFFFF) or Light Gray (#F5F5F5). -->
         </div>
     </div>
 
-
+ 
     <!-- login -->
     <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
         <div class="bg-white rounded-lg shadow-2g h-[70vh] p-8 w-11/12 max-w-md">
