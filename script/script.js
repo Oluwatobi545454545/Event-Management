@@ -213,13 +213,10 @@ onAuthStateChanged(auth, (user) => {
   function displayUI(blog) {
     let allevents = document.getElementById("allevents");
 
-    // Create a new div for the event
     const eventdiv = document.createElement("div");
     
-    // Adding responsiveness and ensuring three on a line for large screens
     eventdiv.className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-10 xl-grid-cols-4 gap-y-10 gap-x-6 ";
 
-    // Set the innerHTML of the event div
     eventdiv.innerHTML = `
         <div class="container mx-auto shadow-lg rounded-lg max-w-md hover:shadow-2xl transition duration-300 cursor-pointer"
             id="event-${blog.id}">
@@ -269,7 +266,6 @@ onAuthStateChanged(auth, (user) => {
         window.location.href = "./event1/event1.html";
     });
 
-    // Append the newly created event div to the allevents container
     allevents.appendChild(eventdiv);
 
     console.log("Event added to UI:", blog.title);

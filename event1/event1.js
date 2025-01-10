@@ -28,10 +28,6 @@ let discoverevents = document.getElementById("discoverevents")
 discoverevents.addEventListener('click', () => {
   window.location.href = "../index.html"
 })
-let buyticket = document.getElementById("buyticket")
-buyticket.addEventListener('click', () => {
-  window.location.href = "../buyticket/buyticket.html"
-})
 const openSignup = document.getElementById("Signup");
 const openLogin = document.getElementById("Login")
 const signupModal = document.getElementById("signupModal");
@@ -93,10 +89,10 @@ function displayError(elementId, message) {
 // Login Logic
 document.getElementById("login").addEventListener("click", async (e) => {
   e.preventDefault();
-
+  
   const email = document.querySelector("#loginModal #email").value.trim();
   const password = document.querySelector("#loginModal #password").value.trim();
-
+  
   if (!email || !password) {
     displayError("displayerrorlogin", "Please enter both email and password.");
     return;
@@ -124,7 +120,7 @@ document.getElementById("login").addEventListener("click", async (e) => {
 /// Signup Logic
 document.getElementById("signup").addEventListener("click", async (e) => {
   e.preventDefault();
-
+  
   const name = document.querySelector("#signupModal #name").value.trim();
   const email = document.querySelector("#signupModal #email").value.trim();
   const password = document.querySelector("#signupModal #password").value.trim();
@@ -175,6 +171,14 @@ onAuthStateChanged(auth, (user) => {
     document.getElementById('Signup').style.display = 'block';
   }
 });
+let buyticket = document.getElementById("buyticket")
+buyticket.addEventListener('click', () => {
+  if (!auth.currentUser) {
+  signupModal.classList.remove("hidden");
+  } else{
+    window.location.href = "../buyticket/buyticket.html"
+  }
+})
 
 // Logout Logic
 document.getElementById("logout-button").addEventListener("click", async () => {
@@ -245,6 +249,17 @@ function displayUI(blog) {
     <h1>${blog.description}</h1>
     
   `;
+  const displaydatetime = document.getElementById("displaydatetime"); 
+  displaydatetime.innerHTML = `
+    <h1>${blog.date}</h1>
+    
+  `;
+  const displaydatetimespan = document.getElementById("displaydatetimespan"); 
+  displaydatetimespan.innerHTML = `
+    <h1>${blog.time}</h1>
+    
+  `;
+ 
   //for changing anount
   
 let minusno = document.getElementById('minusno');
@@ -252,23 +267,20 @@ let addno = document.getElementById('addno');
 let displayno = document.getElementById('displayno');
 let amount = document.getElementById('amount');
 
-// Use the initial value from blog.ticketprice1
 let ticketPrice = parseFloat(blog.ticketprice1); 
-let count = 1; // Initial ticket count
+let count = 1; 
 
-// Display initial values
 amount.textContent = `$ ${ticketPrice}`;
 displayno.textContent = count;
-minusno.disabled = true; // Disable minus button initially
+minusno.disabled = true; 
 
-// Add button click
+
 addno.addEventListener('click', () => {
     ticketPrice += parseFloat(blog.ticketprice1); // Add the initial ticket price
     count++;
     updateUI();
 });
 
-// Minus button click
 minusno.addEventListener('click', () => {
     if (count > 1) {
         ticketPrice -= parseFloat(blog.ticketprice1); // Subtract the initial ticket price
@@ -277,11 +289,10 @@ minusno.addEventListener('click', () => {
     }
 });
 
-// Update display and button states
 function updateUI() {
-    amount.textContent = `$ ${ticketPrice}`; // Update ticket price
-    displayno.textContent = count; // Update ticket count
-    minusno.disabled = count <= 1; // Disable minus button if count is 1
+    amount.textContent = `$ ${ticketPrice}`; 
+    displayno.textContent = count; 
+    minusno.disabled = count <= 1;
 }
 
 
@@ -294,36 +305,45 @@ addticketseller();
 //////////////////////////////////////////
 
 //for countdown
-let datearr = [];
+let blog = JSON.parse(localStorage.getItem('newevent2')) || {};
+console.log('Loaded blog:', blog);
 
-let enddate = new Date('1/31/2025 10:1 AM');
+// Check if the blog has a valid date
+if (blog.date) {
+    let enddate = new Date(blog.date).getTime(); // Use the ticketseller's date
 
-//just to convert to millisec..
-let second = 1000;
-let minute = second * 60;
-let hour = minute * 60;
-let day = hour * 24;
-let timer;
+    // Conversion factors
+    let second = 1000;
+    let minute = second * 60;
+    let hour = minute * 60;
+    let day = hour * 24;
 
-function showRemaining() {
-  let currentdate = new Date();
-  let distance = enddate - currentdate;
-  if (distance < 0) {
+    function showRemaining() {
+        let currentdate = new Date();
+        let distance = enddate - currentdate;
 
-    clearInterval(timer);
-    document.getElementById('countdown').innerHTML = 'THIS EVENT HAS EXPIRED!';
+        if (distance < 0) {
+            clearInterval(timer); // Stop the countdown if the event is expired
+            document.getElementById('countdown').innerHTML = 'THIS EVENT HAS EXPIRED!';
+            return;
+        }
 
-    return;
-  }
-  let days = Math.floor(distance / day);
-  let hours = Math.floor((distance % day) / hour);
-  let minutes = Math.floor((distance % hour) / minute);
-  let seconds = Math.floor((distance % minute) / second);
+        // Calculate remaining time
+        let days = Math.floor(distance / day);
+        let hours = Math.floor((distance % day) / hour);
+        let minutes = Math.floor((distance % hour) / minute);
+        let seconds = Math.floor((distance % minute) / second);
 
-  document.getElementById('displaydays').innerHTML = days;
-  document.getElementById('displayhours').innerHTML = hours;
-  document.getElementById('displayminutes').innerHTML = minutes;
-  document.getElementById('displayseconds').innerHTML = seconds;
+        // Update the countdown display
+        document.getElementById('displaydays').innerHTML = days;
+        document.getElementById('displayhours').innerHTML = hours;
+        document.getElementById('displayminutes').innerHTML = minutes;
+        document.getElementById('displayseconds').innerHTML = seconds;
+    }
+
+    // Start the countdown
+    let timer = setInterval(showRemaining, 1000);
+} else {
+    console.error('No date provided by the ticketseller.');
+    
 }
-
-setInterval(showRemaining, 1000);

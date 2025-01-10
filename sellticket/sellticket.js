@@ -76,7 +76,7 @@ function displayError(elementId, message) {
 }
 
 // Login Logic
-document.getElementById("login").addEventListener("click", async (e) => {
+document.getElementById("Login").addEventListener("click", async (e) => {
   e.preventDefault();
 
   const email = document.querySelector("#loginModal #email").value.trim();
@@ -107,7 +107,7 @@ document.getElementById("login").addEventListener("click", async (e) => {
 });
 
 /// Signup Logic
-document.getElementById("signup").addEventListener("click", async (e) => {
+document.getElementById("Signup").addEventListener("click", async (e) => {
   e.preventDefault();
 
   const name = document.querySelector("#signupModal #name").value.trim();

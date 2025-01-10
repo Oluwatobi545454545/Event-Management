@@ -10,10 +10,7 @@ document.querySelectorAll('.payment-option').forEach(option => {
 //for click color^^^^^^^^^^
 
 
-let payment = document.getElementById("payment")
-payment.addEventListener('click', () => {
-    window.location.href = "../payment/payment.html"
-})
+
 $(document).ready(function () {
     $(".nav-toggler").each(function (_, navToggler) {
         var target = $(navToggler).data("target");
@@ -25,13 +22,7 @@ $(document).ready(function () {
     });
 });
 
-let quantity = document.getElementById("quantity")
-let total = document.getElementById("total")
-let amount = 0;
-quantity.addEventListener('click', () => {
-    let changer = amount += 5
-    total.textContent = `$ ${changer}`
-})
+
 
 let signup = document.getElementById("signup")
 signup.addEventListener('click', () => {
@@ -191,58 +182,36 @@ document.getElementById("logout-button").addEventListener("click", async () => {
         alert(`Error logging out: ${error.message}`);
     }
 });
-async function addticketseller() {
-    try {
-        const fetch = await getDocs(colRef); // Fetch Firestore documents
-        console.log("Fetched Documents:", fetch);
 
-        const selectedEventId = localStorage.getItem("selectedEventId");
-        if (!selectedEventId) {
-            console.error("No event selected.");
-            return;
-        }
-        console.log("Selected Event ID:", selectedEventId);
 
-        let eventFound = false;
+let quantity = document.getElementById("quantity");
+let total = document.getElementById("total");
 
-        // Process fetched documents
-        fetch.forEach(doc => {
-            const data = { id: doc.id, ...doc.data() };
-            console.log("Blog ID:", data.id);
+quantity.addEventListener('input', () => {
+    let changer = quantity.value * 5;
+    total.textContent = changer;
+});
 
-            // Match selected event ID
-            if (data.id === selectedEventId) {
-                displayUI(data);
-                eventFound = true;
-            }
-        });
 
-        if (!eventFound) {
-            console.error("No event found with the selected ID.");
-        }
+const form = document.getElementById('mainform');
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    console.log('there');
+    // window.location.href = "../payment/payment.html"
+    const name2 = document.getElementById("name2").value;
+    const email2 = document.getElementById("email2").value
+    const categories1 = document.getElementById("categories1")
+    const categories2 = document.getElementById("categories2")
+    const quantity = document.getElementById("quantity").value
+    console.log(name2, email2, categories1, categories2, quantity);
+    
 
-    } catch (error) {
-        console.error("Error fetching events:", error);
-    }
-}
 
-function displayUI(blog) {
-//     const maintitle = document.getElementById("maintitle");
-//     maintitle.innerHTML = `
-// <h1>${blog.title}</h1>
+});
 
-// `;
-//     const location = document.getElementById("location");
-//     location.innerHTML = `
-// <h1>${blog.location}</h1>
 
-// `;
-//     const description = document.getElementById("description");
-//     description.innerHTML = `
-// <h1>${blog.description}</h1>
 
-// `;
-}
 
-// Call the function to fetch and display event details
-addticketseller();
+
+
+   

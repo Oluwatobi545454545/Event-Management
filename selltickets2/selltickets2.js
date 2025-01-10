@@ -128,7 +128,7 @@ function showprice() {
 select.addEventListener('change', showprice)
 
 function renderTickets() {
-    display2.innerHTML = ''; // Clear current display
+    display2.innerHTML = ''; 
     tickets.forEach((ticket, index) => {
         display2.innerHTML += `
             <div style="display: flex; gap: 5px; margin-top:1rem; justify-content:center;" >
@@ -183,40 +183,39 @@ form.addEventListener('submit', async (e) => {
     const title = document.getElementById('event-title').value;
     const date = document.getElementById('event-date').value;
     const time = document.getElementById('event-time').value;
-    const location = document.getElementById('event-location').value; // You can add a unique ID here for location
+    const location = document.getElementById('event-location').value; 
     const description = document.getElementById('event-description').value;
-    const quantity = document.getElementById('quantity').value; // Corrected ID for quantity field
-    const price = document.getElementById('select').value; // 'free' or 'paid'
-    const ticketcategory1Element = document.getElementById('ticketcategory1');
-    const ticketcategory1 = ticketcategory1Element ? ticketcategory1Element.value : '';
+    const quantity = document.getElementById('quantity').value; 
+    const price = document.getElementById('select').value; 
+    let ticketcategory1Element = document.getElementById('ticketcategory1');
+    let ticketcategory1 = ticketcategory1Element ? ticketcategory1Element.value : '';
     console.log(document.getElementById('ticketcategory1'));
 
-    const ticketcategory2Element = document.getElementById('ticketcategory2');
-    const ticketcategory2 = ticketcategory2Element ? ticketcategory2Element.value : '';
+    let ticketcategory2Element = document.getElementById('ticketcategory2');
+    let ticketcategory2 = ticketcategory2Element ? ticketcategory2Element.value : '';
     console.log(document.getElementById('ticketcategory2'));   
     
-    const ticketprice1Element = document.getElementById('ticketprice1');
-    const ticketprice1 = ticketprice1Element ? ticketprice1Element.value : '';
+    let ticketprice1Element = document.getElementById('ticketprice1');
+    let ticketprice1 = ticketprice1Element ? ticketprice1Element.value : '';
     console.log(document.getElementById('ticketprice1')); 
 
-    const ticketprice2Element = document.getElementById('ticketprice2');
-    const ticketprice2 = ticketprice2Element ? ticketprice2Element.value : '';
+    let ticketprice2Element = document.getElementById('ticketprice2');
+    let ticketprice2 = ticketprice2Element ? ticketprice2Element.value : '';
     console.log(document.getElementById('ticketprice2'));     
     console.log({ title, date, time, location, description, quantity, price, ticketcategory1, ticketprice1, ticketcategory2, ticketprice2 })
 
     if (price === 'paid') {
-        const ticketcategory1Element = document.getElementById('ticketcategory1');
+        ticketcategory1Element = document.getElementById('ticketcategory1');
         ticketcategory1 = ticketcategory1Element ? ticketcategory1Element.value : '';
     
-        const ticketprice1Element = document.getElementById('ticketprice1');
+        ticketprice1Element = document.getElementById('ticketprice1');
         ticketprice1 = ticketprice1Element ? ticketprice1Element.value : '';
     } else if (price === 'free') {
-        ticketcategory1 = 'Free Entry'; // Set default category for free tickets
-        ticketprice1 = '0'; // Price is 0 for free tickets
+        ticketcategory1 = 'Free Entry'; 
+        ticketprice1 = '0'; 
     }
     
     
-    // Create an object with event data
     const eventData = {
         title,
         date,
@@ -235,9 +234,10 @@ form.addEventListener('submit', async (e) => {
     console.log(formarray);
   localStorage.setItem("newevent", JSON.stringify(formarray));
 
+  localStorage.setItem('newevent2', JSON.stringify(eventData));
 
+  console.log('Event Data:', eventData);
     try {
-        // Add event to Firestore
         console.log("Event Data:", eventData);
         await addDoc(colRef, eventData);
         alert("Event created successfully!");

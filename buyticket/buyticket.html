@@ -185,7 +185,7 @@
     <!-- Header Section -->
     <header class="bg-purple-600 text-white py-6">
         <div class="container mx-auto text-center">
-            <h1 class="text-3xl md:text-4xl font-bold">Complete Your Ticket Purchase</h1>
+            <h1 class="text-3xl md:text-4xl ">Complete Your Ticket Purchase</h1>
             <p class="text-lg mt-2">Secure your spot for the event!</p>
         </div>
     </header>
@@ -193,21 +193,21 @@
     <!-- Ticket Purchase Form -->
     <main class="container mx-auto py-10 px-6">
         <div class="bg-white shadow-md rounded-lg p-8 max-w-2xl mx-auto">
-            <h2 class="text-2xl font-bold mb-6">Ticket Details</h2>
+            <h2 class="text-2xl  mb-6">Ticket Details</h2>
 
             <!-- Form -->
-            <form action="#" method="POST">
+            <form id="mainform"> 
                 <!-- Full Name -->
                 <div class="mb-4">
                     <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
-                    <input type="text" id="name" name="name" required
+                    <input type="text" id="name2" name="name" required
                         class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
                 </div>
 
                 <!-- Email -->
                 <div class="mb-4">
                     <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
-                    <input type="email" id="email" name="email" required
+                    <input type="email" id="email2" name="email" required
                         class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
                 </div>
 
@@ -216,8 +216,8 @@
                     <label for="ticket-type" class="block text-gray-700 font-medium mb-2">Select Ticket Type</label>
                     <select id="ticket-type" name="ticket-type" required
                         class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
-                        <option value="general">Regular - <span>$5</span> </option>
-                        <option value="vip">VIP - <span>$15</span> </option>
+                        <option value="general" id="categories1">Regular - <span id="spanprice1"></span> </option>
+                        <option value="vip" id="categories2">VIP - <span id="spanprice2"></span> </option>
                     </select>
                 </div>
 
@@ -229,15 +229,15 @@
                 </div>
 
                 <!-- Payment Section -->
-                <div class="mb-6">
+                <div on class="mb-6">
                     <p class="text-gray-600 mb-2">Total: <span id="total" class="font-bold text-purple-600">$0.00</span>
                     </p>
                     <small class="text-gray-500">Payment details will be provided on the next page.</small>
                 </div>
 
                 <!-- Vertical Payment Options Section -->
-                <section class="mt-8 mb-4 max-w-2xl mx-auto p-6 bg-white border border-gray-200 rounded-lg shadow-md">
-                    <h2 class="text-xl font-semibold text-gray-800 mb-6 text-center">Choose Your Payment Method</h2>
+                <section class="mt-8 mb-4 max-w-2xl mx-auto p-6 bg-white rounded-lg ">
+                    <h2 class="text-xl text-gray-800 mb-6 text-center">Choose Your Payment Method</h2>
                     <div id="payment-options" class="space-y-4">
                         <!-- PayPal -->
                         <div
