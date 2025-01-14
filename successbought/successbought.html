@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Ticket</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen flex justify-center items-center">
+
+  <div id="ticket-container" class="bg-white shadow-md rounded-lg p-8 w-full max-w-md">
+    <h1 class="text-3xl font-bold text-purple-700 text-center mb-6">Event Ticket</h1>
+    <p class="text-gray-700 text-center mb-8">This is your ticket receipt and entry pass.</p>
+
+    <div class="border-b border-gray-300 pb-6">
+      <div class="flex justify-between items-center mb-4">
+        <span class="text-gray-600 font-semibold">Buyer Name:</span>
+        <span id="buyer-name" class="text-gray-800">Loading...</span>
+      </div>
+      <div class="flex justify-between items-center mb-4">
+        <span class="text-gray-600 font-semibold">Event Name:</span>
+        <span id="event-name" class="text-gray-800">Loading...</span>
+      </div>
+      <div class="flex justify-between items-center mb-4">
+        <span class="text-gray-600 font-semibold">Ticket Type:</span>
+        <span id="ticket-type" class="text-gray-800">Loading...</span>
+      </div>
+      <div class="flex justify-between items-center mb-4">
+        <span class="text-gray-600 font-semibold">Quantity:</span>
+        <span id="quantity" class="text-gray-800">Loading...</span>
+      </div>
+      <div class="flex justify-between items-center mb-4">
+        <span class="text-gray-600 font-semibold">Total Amount:</span>
+        <span id="total-amount" class="text-gray-800">Loading...</span>
+      </div>
+      <div class="flex justify-between items-center">
+        <span class="text-gray-600 font-semibold">Ticket ID:</span>
+        <span id="ticket-id" class="text-gray-800">Loading...</span>
+      </div>
+    </div>
+
+    <div class="mt-8 flex justify-between">
+      <button id="download-ticket" class="bg-purple-700 text-white py-2 px-4 rounded hover:bg-purple-800">
+        Download Ticket
+      </button>
+      <button id="view-tickets" class="bg-gray-700 text-white py-2 px-4 rounded hover:bg-gray-800">
+        View All Tickets
+      </button>
+    </div>
+  </div>
+  <div id="ticket-container" class="p-4 bg-gray-100 min-h-screen"></div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+    <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
+
+// Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDavJ_vkK0PVQfZO0kPP4Bfy3JtaAUdOVg",
+  authDomain: "eventbrite-500fa.firebaseapp.com",
+  projectId: "eventbrite-500fa",
+  storageBucket: "eventbrite-500fa.firebasestorage.app",
+  messagingSenderId: "956739031892",
+  appId: "1:956739031892:web:ae9ce6618bcc48f9de2ec1",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+async function displayBuyerTicket() {
+  const purchaseId = localStorage.getItem("purchaseId"); 
+
+  if (!purchaseId) {
+    document.getElementById("ticket-container").innerHTML = "<p>No ticket information available.</p>";
+    return;
+  }
+
+  try {
+    const docRef = doc(db, "Ticketpurchases", purchaseId); 
+    const docSnap = await getDoc(docRef); 
+
+    const ticketContainer = document.getElementById("ticket-container");
+
+    if (!docSnap.exists()) {
+      ticketContainer.innerHTML = "<p>No ticket found for the provided ID.</p>";
+      return;
+    }
+
+    const ticketData = docSnap.data();
+    document.getElementById("buyer-name").innerHTML = `
+    <p><b>Buyer Name:</b> ${ticketData.name}</p>
+    `
+    ticketContainer.innerHTML = `
+      <div class="border border-gray-300 rounded-md p-4 mb-4">
+        
+        <p><strong>Email:</strong> ${ticketData.email2}</p>
+        <p><strong>Ticket Type:</strong> ${ticketData.selectedType}</p>
+        <p><strong>Quantity:</strong> ${ticketData.quantity}</p>
+        <p><strong>Ticket ID:</strong> ${purchaseId}</p>
+      </div>
+    `;
+  } catch (error) {
+    console.error("Error fetching ticket details:", error);
+    document.getElementById("ticket-container").innerHTML = "<p>Error loading ticket details. Please try again later.</p>";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", displayBuyerTicket);
+
+
+  </script>
+</body>
+</html>

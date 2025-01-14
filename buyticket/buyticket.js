@@ -56,6 +56,7 @@ import {
     getFirestore,
     collection,
     getDocs,
+    addDoc,
 } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
 
 
@@ -74,6 +75,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 const colRef = collection(db, "Ticketseller");
+const purchaseRef = collection(db, "Ticketpurchases");
 
 
 setPersistence(auth, browserLocalPersistence);
@@ -183,35 +185,115 @@ document.getElementById("logout-button").addEventListener("click", async () => {
     }
 });
 
+async function addticketseller() {
+    try {
+        // Fetch Firestore documents
+        const fetch = await getDocs(colRef);
+        console.log("Fetched Documents:", fetch);
 
-let quantity = document.getElementById("quantity");
-let total = document.getElementById("total");
+        const selectedEventId = localStorage.getItem("selectedEventId");
+        if (!selectedEventId) {
+            console.error("No event selected.");
+            return;
+        }
+        console.log("Selected Event ID:", selectedEventId);
 
-quantity.addEventListener('input', () => {
-    let changer = quantity.value * 5;
-    total.textContent = changer;
-});
+        let eventFound = false;
+
+        // Process fetched documents
+        fetch.forEach(doc => {
+            const data = { id: doc.id, ...doc.data() };
+            console.log("Event ID:", data.id);
+
+            if (data.id === selectedEventId) {
+                displayUI(data);
+                eventFound = true;
+            }
+        });
+
+        if (!eventFound) {
+            console.error("No event found with the selected ID.");
+        }
+    } catch (error) {
+        console.error("Error fetching events:", error);
+    }
+}
+
+function displayUI(eventData) {
+    // Update UI for ticket categories and prices
+    const categories1 = document.getElementById("categories1");
+    const categories2 = document.getElementById("categories2");
+
+    if (categories1 && categories2) {
+        categories1.innerHTML = `<h1>${eventData.ticketcategory1} - $${eventData.ticketprice1}</h1>`;
+        categories2.innerHTML = `<h1>${eventData.ticketcategory2} - $${eventData.ticketprice2}</h1>`;
+    }
+
+    const ticketType = document.getElementById("ticket-type");
+    const quantity = document.getElementById("quantity");
+    const total = document.getElementById("total");
+
+    // Update total price based on selection
+    function updateTotal() {
+        const selectedType = ticketType.value;
+        const quantityValue = parseInt(quantity.value) || 0;
+
+        let price = 0;
+        if (selectedType === "general") {
+            price = parseFloat(eventData.ticketprice1) || 0;
+        } else if (selectedType === "vip") {
+            price = parseFloat(eventData.ticketprice2) || 0;
+        }
+
+        total.textContent = `$${(quantityValue * price).toFixed(2)}`;
+    }
+
+    if (ticketType && quantity && total) {
+        ticketType.addEventListener("change", updateTotal);
+        quantity.addEventListener("input", updateTotal);
+    }
+
+    // Handle ticket purchase submission
+    const form = document.getElementById("mainform");
+    if (form) {
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const name2 = document.getElementById("name2").value.trim();
+            const email2 = document.getElementById("email2").value.trim();
+            const quantityValue = quantity.value.trim();
+            const selectedType = ticketType.value;
+
+            console.log("Purchase Details:", { name2, email2, quantityValue, selectedType });
+
+            const purchaseData = {
+                name: name2,
+                email: email2,
+                quantity: quantityValue,
+                type: selectedType,
+            };
+
+            try {
+                const docRef = await addDoc(purchaseRef, purchaseData);
+                localStorage.setItem("purchaseId", docRef.id); // Save purchase ID
+
+                console.log("Purchase saved successfully!");
+                window.location.href = "../successbought/successbought.html";
+            } catch (error) {
+                console.error("Error saving purchase:", error);
+            }
+        });
+    }
+}
+
+// Initialize function
+addticketseller();
 
 
-const form = document.getElementById('mainform');
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    console.log('there');
-    // window.location.href = "../payment/payment.html"
-    const name2 = document.getElementById("name2").value;
-    const email2 = document.getElementById("email2").value
-    const categories1 = document.getElementById("categories1")
-    const categories2 = document.getElementById("categories2")
-    const quantity = document.getElementById("quantity").value
-    console.log(name2, email2, categories1, categories2, quantity);
-    
-
-
-});
 
 
 
 
 
 
-   
+

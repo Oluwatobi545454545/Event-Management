@@ -276,14 +276,14 @@ minusno.disabled = true;
 
 
 addno.addEventListener('click', () => {
-    ticketPrice += parseFloat(blog.ticketprice1); // Add the initial ticket price
+    ticketPrice += parseFloat(blog.ticketprice1);
     count++;
     updateUI();
 });
 
 minusno.addEventListener('click', () => {
     if (count > 1) {
-        ticketPrice -= parseFloat(blog.ticketprice1); // Subtract the initial ticket price
+        ticketPrice -= parseFloat(blog.ticketprice1);
         count--;
         updateUI();
     }
@@ -298,7 +298,6 @@ function updateUI() {
 
 }
 
-// Call the function to fetch and display event details
 addticketseller();
 
 //////////////////////////////

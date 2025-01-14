@@ -85,6 +85,15 @@ function showprice() {
                                 <span class="text-gray-700 font-medium">PayPal</span>
                             </div>
                         </div>
+                          <!-- Bank Transfer -->
+                        <div
+                            class="payment-option flex items-center justify-between p-4 border border-gray-300 rounded-lg hover:shadow-md transition cursor-pointer">
+                            <div class="flex items-center">
+                                <img src="https://cdn-icons-png.flaticon.com/512/2910/2910766.png" alt="Bank Transfer"
+                                    class="w-10 h-10 mr-4">
+                                <span class="text-gray-700 font-medium">Bank Transfer</span>
+                            </div>
+                        </div>
                         <!-- Credit/Debit Card -->
                         <div
                             class="payment-option flex items-center justify-between p-4 border border-gray-300 rounded-lg hover:shadow-md transition cursor-pointer">
@@ -103,37 +112,38 @@ function showprice() {
                                 <span class="text-gray-700 font-medium">Stripe</span>
                             </div>
                         </div>
-                        <!-- Google Pay -->
-                        <div
-                            class="payment-option flex items-center justify-between p-4 border border-gray-300 rounded-lg hover:shadow-md transition cursor-pointer">
-                            <div class="flex items-center">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Google_Pay_Logo.svg/512px-Google_Pay_Logo.svg.png"
-                                    alt="Google Pay" class="w-10 h-10 mr-4">
-                                <span class="text-gray-700 font-medium">Google Pay</span>
-                            </div>
-                        </div>
+                      
                     </div>
                 </section>
                 <div style="display: flex; gap: 5px; margin-top:1rem; justify-content:center;" >
                     <input type="text" id="ticketcategory1" class="w-1/2 p-3 border border-gray-300 rounded-lg"
-                    placeholder="Ticket Category (e.g., Regular)">
+                    placeholder="Regular">
                     <input type="number" id="ticketprice1" class="w-1/2 p-3 border border-gray-300 rounded-lg"
                     placeholder="Price (e.g., 5000)"> 
                     <button type="button"  class="bg-red-500 text-white py-2 px-4 rounded-lg">Remove</button>
                 </div>
         
         `
+        document.querySelectorAll('.payment-option').forEach(option => {
+            option.addEventListener('click', function () {
+                // Remove 
+                document.querySelectorAll('.payment-option').forEach(opt => opt.classList.remove('bg-purple-100', 'border-purple-500'));
+
+                this.classList.add('bg-purple-100', 'border-purple-500');
+            });
+        });
+        //for click color^^^^^^^^^^
     }
 }
 select.addEventListener('change', showprice)
 
 function renderTickets() {
-    display2.innerHTML = ''; 
+    display2.innerHTML = '';
     tickets.forEach((ticket, index) => {
         display2.innerHTML += `
             <div style="display: flex; gap: 5px; margin-top:1rem; justify-content:center;" >
                     <input type="text" id="ticketcategory2" class="w-1/2 p-3 border border-gray-300 rounded-lg" 
-                    placeholder="Ticket Category (e.g., VVIP)" >
+                    placeholder="VVIP" >
                     <input type="number" id="ticketprice2" class="w-1/2 p-3 border border-gray-300 rounded-lg"
                     placeholder="Price (e.g., 10,000)" > 
                     <button type="button" onclick="deleteTicket(${index})"class="bg-red-500 text-white py-2 px-4 rounded-lg">Remove</button>
@@ -155,7 +165,8 @@ addticketbtn.addEventListener('click', () => {
 //////////////////
 /////////////////
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDocs, query, where } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 
 // Firebase configuration
 const firebaseConfig = {
@@ -172,6 +183,9 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const colRef = collection(db, "Ticketseller");
 const formarray = [];
+const auth = getAuth(); 
+const user = auth.currentUser; 
+
 
 const form = document.querySelector('form');
 form.addEventListener('submit', async (e) => {
@@ -179,43 +193,47 @@ form.addEventListener('submit', async (e) => {
     console.log('there');
 
 
-    // Get form data
     const title = document.getElementById('event-title').value;
     const date = document.getElementById('event-date').value;
     const time = document.getElementById('event-time').value;
-    const location = document.getElementById('event-location').value; 
+    const location = document.getElementById('event-location').value;
     const description = document.getElementById('event-description').value;
-    const quantity = document.getElementById('quantity').value; 
-    const price = document.getElementById('select').value; 
+    const quantity = document.getElementById('quantity').value;
+    const price = document.getElementById('select').value;
     let ticketcategory1Element = document.getElementById('ticketcategory1');
     let ticketcategory1 = ticketcategory1Element ? ticketcategory1Element.value : '';
     console.log(document.getElementById('ticketcategory1'));
 
     let ticketcategory2Element = document.getElementById('ticketcategory2');
     let ticketcategory2 = ticketcategory2Element ? ticketcategory2Element.value : '';
-    console.log(document.getElementById('ticketcategory2'));   
+    console.log(document.getElementById('ticketcategory2'));
     
     let ticketprice1Element = document.getElementById('ticketprice1');
     let ticketprice1 = ticketprice1Element ? ticketprice1Element.value : '';
-    console.log(document.getElementById('ticketprice1')); 
+    console.log(document.getElementById('ticketprice1'));
 
     let ticketprice2Element = document.getElementById('ticketprice2');
     let ticketprice2 = ticketprice2Element ? ticketprice2Element.value : '';
-    console.log(document.getElementById('ticketprice2'));     
+    console.log(document.getElementById('ticketprice2'));
     console.log({ title, date, time, location, description, quantity, price, ticketcategory1, ticketprice1, ticketcategory2, ticketprice2 })
 
     if (price === 'paid') {
         ticketcategory1Element = document.getElementById('ticketcategory1');
         ticketcategory1 = ticketcategory1Element ? ticketcategory1Element.value : '';
-    
+        
         ticketprice1Element = document.getElementById('ticketprice1');
         ticketprice1 = ticketprice1Element ? ticketprice1Element.value : '';
     } else if (price === 'free') {
-        ticketcategory1 = 'Free Entry'; 
-        ticketprice1 = '0'; 
+        ticketcategory1 = 'Free Entry';
+        ticketprice1 = '0';
     }
     
-    
+    // const auth = getAuth();
+    // const user = auth.currentUser;
+    // if (user) {
+    //     const sellerId = user.uid; // This is the seller's unique ID
+    // }
+
     const eventData = {
         title,
         date,
@@ -229,15 +247,17 @@ form.addEventListener('submit', async (e) => {
         ticketprice1,
         ticketprice2,
     };
+
     // window.location.href ="../sucess/success.html"
     formarray.push(eventData)
     console.log(formarray);
-  localStorage.setItem("newevent", JSON.stringify(formarray));
+    localStorage.setItem("newevent", JSON.stringify(formarray));
 
-  localStorage.setItem('newevent2', JSON.stringify(eventData));
+    localStorage.setItem('newevent2', JSON.stringify(eventData));
 
-  console.log('Event Data:', eventData);
+    console.log('Event Data:', eventData);
     try {
+
         console.log("Event Data:", eventData);
         await addDoc(colRef, eventData);
         alert("Event created successfully!");
@@ -245,3 +265,5 @@ form.addEventListener('submit', async (e) => {
         console.error("Error adding document: ", error);
     }
 });
+
+

@@ -137,7 +137,7 @@
                             Description</label>
                         <textarea id="event-description" class="w-full mt-1 p-3 border border-gray-300 rounded-lg"
                             placeholder="Add more details about your event..." rows="5" required></textarea>
-                            <p class="block text-sm font-size text-gray-400">Maximum of 72 characters</p>
+                            <p class="block text-sm font-size text-gray-400" id="muchtext">Maximum of 72 characters</p>
                     </div>
                     <div>
                         <label for="event-title" class="block text-sm font-medium text-gray-700">Quantity</label>
@@ -184,7 +184,15 @@
             <!-- Orders Content -->
             <div id="orders-content" class="content-section hidden">
                 <h2 class="text-2xl font-semibold text-gray-800 text-center">Your Orders</h2>
-                <p class="text-gray-500 text-center mt-4">No orders to display yet.</p>
+                <p class="text-gray-500 text-center mt-4" >
+                    No orders to display yet.
+                    <section id="ticket-purchases">
+                        <h2>Your Ticket Purchases</h2>
+                        <div id="purchase-list">
+                          <p>Loading ticket purchases...</p>
+                        </div>
+                      </section>
+                </p>
             </div>
 
             <!-- Reports Content -->

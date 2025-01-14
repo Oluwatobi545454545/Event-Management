@@ -30,9 +30,7 @@ const loginModal = document.getElementById("loginModal")
 // Open Modal
 openSignup.addEventListener("click", () => {
     signupModal.classList.remove("hidden");
-    // console.log('hello');
-
-    // homepage.classList.add("filter", "blur-sm");
+  
 });
 openLogin.addEventListener("click", () => {
     loginModal.classList.remove("hidden")
@@ -97,8 +95,8 @@ document.getElementById("login").addEventListener("click", async (e) => {
       displayError("displayerrorlogin", "Login successful!");
       setTimeout(() => {
         document.getElementById("loginModal").classList.add("hidden");
-        displayError("displayerrorlogin", ""); // Clear error after success
-        showProfileSection(); // Show profile section after successful login
+        displayError("displayerrorlogin", "");
+        showProfileSection();
       }, 2000);
     } catch (error) {
       if (error.code === "auth/user-not-found") {
@@ -129,8 +127,8 @@ document.getElementById("login").addEventListener("click", async (e) => {
       displayError("displayerror", "Account created successfully! You can now log in.");
       setTimeout(() => {
         document.getElementById("signupModal").classList.add("hidden");
-        displayError("displayerror", ""); // Clear error after success
-        showProfileSection(); // Show profile section after successful signup
+        displayError("displayerror", ""); 
+        showProfileSection(); 
       }, 2000);
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
@@ -156,10 +154,8 @@ document.getElementById("login").addEventListener("click", async (e) => {
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
-      // User is signed in
       showProfileSection();
     } else {
-      // User is signed out
       document.getElementById('profile-section').style.display = 'none';
       document.getElementById('Login').style.display = 'block';
       document.getElementById('Signup').style.display = 'block';
@@ -193,9 +189,9 @@ onAuthStateChanged(auth, (user) => {
   ////////////////////////////////
   async function addticketseller() {
     try {
-      const fetch = await getDocs(colRef); //Fetches all blog documents from a Firestore collection using getDocs
+      const fetch = await getDocs(colRef); 
       console.log(fetch);
-      fetch.forEach(doc => { //doc is to represent each document in the collection
+      fetch.forEach(doc => { 
         const data = { id: doc.id, ...doc.data() };
         displayUI(data);
         console.log(data);
@@ -259,7 +255,6 @@ onAuthStateChanged(auth, (user) => {
         </div>
     `;
 
-     // Add event listener to the container div
     eventdiv.addEventListener("click", () => {
         console.log("Event clicked:", blog.title);
         localStorage.setItem("selectedEventId", blog.id);
